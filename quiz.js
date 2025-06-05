@@ -387,8 +387,8 @@ const questions = [
         }
       }
     ]
-  },
-]
+  }
+];
       
 const results = {
   "Gentle Anchor": "You are the Gentle Anchor: calm, steady, emotionally intuitive. You seek a soulmate who brings excitement without chaos—someone who makes you feel alive but still safe.",
