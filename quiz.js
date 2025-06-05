@@ -388,13 +388,21 @@ const questions = [
       }
     ]
   },
-];
-onst results = {Add commentMore actions
-  "The Gentle Anchor": "You are the Gentle Anchor: calm, steady, and emotionally intuitive. Your soulmate is someone who brings excitement without chaos—someone who makes you feel alive but still safe.",
-  "The Firestarter": "You are the Firestarter: bold, passionate, and full of raw energy. Your soulmate is someone grounded, someone who helps you stay focused and tender while never dimming your flame.",
-  "The Stargazer’s Mirror": "You are the Stargazer’s Mirror: introspective, poetic, and dreamy. You need someone who can meet you on that cosmic level—or shake you out of your thoughts when you need it.",
-  "The Golden Heart": "You are the Golden Heart: full of empathy and light. Your soulmate balances you with complexity, challenge, or spiritual connection.",
-  "The Iron Heart": "You are the Iron Heart: dependable, loyal, protective. You need someone who softens your edges and invites you to feel more, not just do more."
+]
+      
+const results = {
+  "Gentle Anchor": "You are the Gentle Anchor: calm, steady, emotionally intuitive. You seek a soulmate who brings excitement without chaos—someone who makes you feel alive but still safe.",
+  "Witchlight Alchemist": "You are the Witchlight Alchemist: curious, layered, mystical. Your soulmate brings structure and deep emotional safety to your wild imagination.",
+  "Loyal Best Friend": "You are the Loyal Best Friend: dependable, kind, always there. Your soulmate is someone mysterious or daring who sees and cherishes your quiet depth.",
+  "Golden Heart": "You are the Golden Heart: open, warm, deeply empathetic. Your soulmate is someone who adds edge, fire, or spiritual intrigue to your sunny spirit.",
+  "Firestarter": "You are the Firestarter: passionate, intense, quick to act. You crave a soulmate who grounds you, honours your fire, and helps you build something lasting.",
+  "Trickster Flame": "You are the Trickster Flame: witty, chaotic, emotionally bright. Your soulmate is a steady, quietly magical soul who loves your mess without taming you.",
+  "Blooming Storm": "You are the Blooming Storm: fierce, soft, emotionally rich. You are drawn to someone who understands complexity and stays through transformation.",
+  "Velvet Rebel": "You are the Velvet Rebel: bold, private, protective. Your soulmate is someone gentle, loyal, and quietly powerful who melts your edges with patience.",
+  "Solar Siren": "You are the Solar Siren: magnetic, radiant, confident. Your soulmate sees behind the glamour and matches your brilliance with insight and grounding.",
+  "Power Pairing": "You are the Power Pairing: strategic, driven, capable. Your soulmate is someone who inspires softness and poetic honesty without slowing your momentum.",
+  "Iron Heart": "You are the Iron Heart: steady, loyal, protective. Your soulmate is someone with open feelings, wild dreams, and courage to pull you out of your armour.",
+  "Stargazer’s Mirror": "You are the Stargazer’s Mirror: introspective, strange, poetic. You are drawn to lovers who ground your existentialism with warmth or dazzle you with fire."
 };
 
 let currentQuestion = 0;
@@ -413,17 +421,16 @@ function renderQuestion() {
   questionEl.textContent = q.text;
   container.appendChild(questionEl);
 
-  q.options.forEach((option, i) => {
+  q.options.forEach(option => {
     const button = document.createElement("button");
     button.textContent = option.text;
     button.onclick = () => {
-      // Add to scores
-      option.contributesTo.self.forEach(type => {
-        selfScores[type] = (selfScores[type] || 0) + 1;
-      });
-      option.contributesTo.soulmate.forEach(type => {
-        soulmateScores[type] = (soulmateScores[type] || 0) + 1;
-      });
+      for (const [type, value] of Object.entries(option.contributesTo.self)) {
+        selfScores[type] = (selfScores[type] || 0) + value;
+      }
+      for (const [type, value] of Object.entries(option.contributesTo.soulmate)) {
+        soulmateScores[type] = (soulmateScores[type] || 0) + value;
+      }
       currentQuestion++;
       renderQuestion();
     };
@@ -432,15 +439,10 @@ function renderQuestion() {
 }
 
 function getTopType(scoreObj) {
-  let max = -Infinity;
-  let top = null;
-  for (const type in scoreObj) {
-    if (scoreObj[type] > max) {
-      max = scoreObj[type];
-      top = type;
-    }
-  }
-  return top;
+  return Object.entries(scoreObj).reduce(
+    (top, current) => current[1] > top[1] ? current : top,
+    ["", -Infinity]
+  )[0];
 }
 
 function showResults() {
@@ -450,21 +452,21 @@ function showResults() {
   const selfType = getTopType(selfScores);
   const soulmateType = getTopType(soulmateScores);
 
-  const resultHeader = document.createElement("h2");
-  resultHeader.textContent = `✨ You Are: ${selfType}`;
-  container.appendChild(resultHeader);
+  const titleSelf = document.createElement("h2");
+  titleSelf.textContent = `✨ You Are: ${selfType}`;
+  container.appendChild(titleSelf);
 
-  const selfPara = document.createElement("p");
-  selfPara.textContent = results[selfType];
-  container.appendChild(selfPara);
+  const descSelf = document.createElement("p");
+  descSelf.textContent = results[selfType];
+  container.appendChild(descSelf);
 
-  const soulmateHeader = document.createElement("h2");
-  soulmateHeader.textContent = `💫 Your Soulmate: ${soulmateType}`;
-  container.appendChild(soulmateHeader);
+  const titleSoulmate = document.createElement("h2");
+  titleSoulmate.textContent = `💫 Your Soulmate: ${soulmateType}`;
+  container.appendChild(titleSoulmate);
 
-  const soulmatePara = document.createElement("p");
-  soulmatePara.textContent = results[soulmateType];
-  container.appendChild(soulmatePara);
-}Add commentMore actions
+  const descSoulmate = document.createElement("p");
+  descSoulmate.textContent = results[soulmateType];
+  container.appendChild(descSoulmate);
+}
 
 renderQuestion();
