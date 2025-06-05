@@ -1,0 +1,28 @@
+body {
+  font-family: 'Georgia', serif;
+  background: #1c1c1c;
+  color: #eee;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+.quiz-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #2a2a2a;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+button {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #666;
+}
