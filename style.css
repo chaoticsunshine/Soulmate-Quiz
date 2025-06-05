@@ -21,6 +21,8 @@ button {
   padding: 1rem;
   margin-top: 1rem;
   cursor: pointer;
+  display: block;
+  width: 100%;
 }
 
 button:hover {
