@@ -384,7 +384,7 @@ const questions = [
         contributesTo: {
           self: { 'Iron Heart': 1, 'Velvet Rebel': 0.5, 'Power Pairing': 0.25 },
           soulmate: { 'Golden Heart': 1, 'Blooming Storm': 0.5 }
-        }
+         }
       }
     ]
   }
