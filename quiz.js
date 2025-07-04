@@ -168,3 +168,5 @@ function showResults() {
   descSoulmate.textContent = results[soulmateType];
   container.appendChild(descSoulmate);
 }
+
+renderQuestion();
