@@ -1,7 +1,18 @@
 document.getElementById("start-btn").addEventListener("click", () => {
-  document.getElementById("title-screen").style.display = "none";
-  document.getElementById("quiz").style.display = "block";
-  renderQuestion();
+  const titleScreen = document.getElementById("title-screen");
+  const quiz = document.getElementById("quiz");
+
+  // Apply fade-out class
+  titleScreen.classList.add("fade-out");
+
+  // Wait for animation to finish, then hide title and show quiz
+  setTimeout(() => {
+    titleScreen.style.display = "none";
+    quiz.style.display = "block";
+    quiz.classList.add("fade-in");
+
+    renderQuestion();
+  }, 1000); // match this to fadeOut duration
 });
 
 const questions = [
@@ -162,23 +173,31 @@ function getTopType(scoreObj) {
 
 function showResults() {
   const container = document.getElementById("quiz");
-  container.innerHTML = "";
-  container.classList.add("glow");
 
-  const soulmateType = getTopType(soulmateScores);
+  // Step 1: Fade out current content
+  container.classList.remove("fade-in", "glow");
+  container.classList.add("fade-out-fast");
 
-  const titleSoulmate = document.createElement("h2");
-  titleSoulmate.textContent = `Your Soulmate Archetype: ${soulmateType}`;
-  container.appendChild(titleSoulmate);
+  // Step 2: Wait for fade-out to finish
+  setTimeout(() => {
+    container.innerHTML = ""; // Now safe to clear content
 
-  results[soulmateType]
-  .split("LINE")
-  .forEach(paragraph => {
-    const p = document.createElement("p");
-    p.textContent = paragraph.trim();
-    container.appendChild(p);
-  });
-  container.appendChild(descSoulmate);
-}
+    // Reset classes and trigger reflow to restart animations
+    container.classList.remove("fade-out-fast");
+    void container.offsetWidth;
+
+    // Step 3: Add glow and fade-in for result
+    container.classList.add("glow", "fade-in");
+
+    const soulmateType = getTopType(soulmateScores);
+
+    const title = document.createElement("h2");
+    title.textContent = `💫 Your Soulmate Archetype: ${soulmateType}`;
+    container.appendChild(title);
+
+    const desc = document.createElement("p");
+    desc.textContent = results[soulmateType];
+    container.appendChild(desc);
+  }, 500); // match to fadeOutFast duration
 
 renderQuestion();
