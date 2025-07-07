@@ -161,11 +161,16 @@ function showResults() {
   const soulmateType = getTopType(soulmateScores);
 
   const titleSoulmate = document.createElement("h2");
-  titleSoulmate.textContent = `💫 Your Soulmate Archetype: ${soulmateType}`;
+  titleSoulmate.textContent = `Your Soulmate Archetype: ${soulmateType}`;
   container.appendChild(titleSoulmate);
 
-  const descSoulmate = document.createElement("p");
-  descSoulmate.textContent = results[soulmateType];
+  results[soulmateType]
+  .split("LINE")
+  .forEach(paragraph => {
+    const p = document.createElement("p");
+    p.textContent = paragraph.trim();
+    container.appendChild(p);
+  });
   container.appendChild(descSoulmate);
 }
 
