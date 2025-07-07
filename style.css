@@ -123,13 +123,15 @@ p {
 
 /* 🔮 Quiz Box */
 #quiz {
-  background: transparent;
-  padding: 0;
-  box-shadow: none;
-}
-
-#quiz > div {
-  max-width: 100%;
+  max-width: 700px;
+  width: 90%;
+  background-color: #2a2339;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
+  z-index: 2;
+  position: relative;
+  display: none;
 }
 
 .quiz-container {

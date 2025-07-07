@@ -160,7 +160,7 @@ const keywords = {
 
     const questionEl = document.createElement("h2");
     questionEl.textContent = q.text;
-    questionWrapper.appendChild(questionEl);
+    content.appendChild(questionEl);
 
     q.options.forEach(option => {
       const button = document.createElement("button");
@@ -172,10 +172,10 @@ const keywords = {
         currentQuestion++;
         renderQuestion();
       };
-      questionWrapper.appendChild(button);
+      content.appendChild(button);
     });
 
-    quizContainer.appendChild(questionWrapper);
+    quizContainer.appendChild(content);
   }
 
  function getKeywordsForType(type) {
@@ -193,24 +193,23 @@ const keywords = {
   content.classList.add("quiz-content");
 
     // Now build results
-    const soulmateType = getTopType(soulmateScores);
+    quizContainer.innerHTML = "";
 
-    const title = document.createElement("h2");
-    title.textContent = `Your Soulmate Archetype: ${soulmateType}`;
-    quizContainer.appendChild(title);
+    const content = document.createElement("div");
+    content.classList.add("quiz-content");
 
-    const keyWords = document.createElement("p");
-    keyWords.textContent = getKeywordsForType(soulmateType);
-    keyWords.classList.add("keywords");
-    quizContainer.appendChild(keyWords);
-
+    // Build into `content`, not `quizContainer`
+    content.appendChild(title);
+    content.appendChild(keyWords);
     results[soulmateType]
       .split("LINE")
       .forEach(paragraph => {
         const p = document.createElement("p");
         p.textContent = paragraph.trim();
-        quizContainer.appendChild(p);
+        content.appendChild(p);
       });
+
+    quizContainer.appendChild(content);
 
     // Re-show and fade in
     quizContainer.style.display = "block";
