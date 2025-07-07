@@ -133,6 +133,9 @@ p {
 .quiz-content {
   animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
+  width: 100%;
+  display: block;
+  box-sizing: border-box
 }
 
 /* 🎴 Tarot-style Answer Buttons */
@@ -185,6 +188,8 @@ button:hover {
   border: 2px solid #d3a3ff;
   box-shadow: 0 0 0px rgba(211, 163, 255, 0);
   transition: box-shadow 0.5s ease;
+  overflow: visible;
+  min-height: 200px; /* or whatever suits your content */
 }
 
 @keyframes glow-border {
