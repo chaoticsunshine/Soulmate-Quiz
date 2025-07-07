@@ -6,7 +6,7 @@ a/* 🌘 General Layout */
 }
 
 body {
-  background-color: #000000;
+  background: transparent;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -78,7 +78,6 @@ p {
 }
 
 /*bg overlay*/
-<div class="background-layer"></div>
 .background-layer {
   position: fixed;
   top: 0; left: 0;
