@@ -116,6 +116,7 @@ p {
   z-index: 2;
   position: relative;
   display: none;
+  overflow: visible;
 }
 
 .quiz-container {
