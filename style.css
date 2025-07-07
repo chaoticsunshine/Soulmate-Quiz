@@ -108,18 +108,18 @@ body::after {
   display:block;
 }
 .stars {
-  background:#000000 url(stars.png) repeat top center;
+  background:#000000 file(stars.png) repeat top center;
   z-index:0;
 }
 
 .twinkling{
-  background:transparent url(twinkling.png) repeat top center;
+  background:transparent file(twinkling.png) repeat top center;
   z-index:1;
   animation:move-twink-back 300s linear infinite;
 }
 
 .clouds{
-    background:transparent url(clouds.png) repeat top center;
+    background:transparent file(clouds.png) repeat top center;
     z-index:2;
     opacity: .4;
     animation:move-clouds-back 300s linear infinite;
