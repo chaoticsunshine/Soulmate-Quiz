@@ -6,7 +6,7 @@ body {
   background-size: 300px 300px;
 
   color: #f2e9f0;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -58,7 +58,7 @@ button {
   display: block;
   width: 100%;
   background: linear-gradient(145deg, #3f2d56, #4e3566);
-  border: 1px solid #7c5f9a;
+  border: none;
   color: #f5ecff;
   border-radius: 12px;
   padding: 1.2rem;
@@ -66,7 +66,7 @@ button {
   margin: 1rem 0;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  font-family: 'Inter', sans-serif;
+   font-family: 'Inter', sans-serif;
   box-shadow: 0 5px 15px rgba(123, 97, 154, 0.2);
   text-align: left;
 }
@@ -118,7 +118,12 @@ body::after {
   opacity: 0.035;
 }
 
-  .twinkling {
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+.twinkling {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -131,8 +136,4 @@ body::after {
 @keyframes moveTwinkle {
   from { background-position: 0 0; }
   to { background-position: -10000px 5000px; }
-}
-@keyframes drift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-50%, -50%); }
 }
