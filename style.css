@@ -16,11 +16,11 @@
 }
 .stars {
   background:#000000 url('stars.png') repeat top center;
-  z-index:-1;
+  z-index:-2;
 }
 
 .twinkling{background:transparent url('twinkling.png') repeat top center;
-  z-index:0;
+  z-index:-1;
   animation:move-twink-back 500s linear infinite;
 }
 
@@ -33,6 +33,7 @@
   padding: 2rem;
   line-height: 1.6;
   letter-spacing: 0.3px;
+    z-index: 1;
     
   color: #f2e9f0;
   font-family: 'Cormorant Garamond', serif;
@@ -40,6 +41,7 @@
   padding: 0;
   line-height: 1.6;
   letter-spacing: 0.3px;
+    z-index: 2;
 
   display:block;
   justify-content: center;
@@ -48,6 +50,7 @@
   flex-direction: column;
   position: relative;
   overflow-x: hidden;
+    z-index: 3;
 }
 
 /* 🌖 Import a gentle serif + clean sans as backup */
@@ -60,7 +63,6 @@ h1, h2 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   text-align: center;
-     z-index: 1;
 }
 
 h2 {
@@ -81,7 +83,7 @@ p {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
-     z-index: 3;
+     z-index: 6;
 }
 
 /* 🌒 Answer Buttons */
@@ -100,12 +102,13 @@ button {
   font-family: 'Inter', sans-serif;
   box-shadow: 0 5px 15px rgba(123, 97, 154, 0.2);
   text-align: left;
-     z-index: 2;
+     z-index: 5;
 }
 
 button:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(177, 144, 221, 0.4);
   background: linear-gradient(145deg, #513570, #6a4793);
+    z-index: 4;
 }
  
