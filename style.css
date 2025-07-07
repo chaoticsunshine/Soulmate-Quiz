@@ -1,8 +1,13 @@
 /* 🌘 General Layout */
 * {
-    margin: 0;
-    padding: 0;
-
+  background-color: #1d1a29;
+  color: #f2e9f0;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 2rem;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+    
   color: #f2e9f0;
   font-family: 'Cormorant Garamond', serif;
   margin: 0;
@@ -108,12 +113,12 @@ body::after {
   display:block;
 }
 .stars {
-  background:#000000 url('https://github.com/chaoticsunshine/Soulmate-Quiz/blob/main/stars.png') repeat top center;
+  background:#000000 url('stars.png') repeat top center;
   z-index:0;
 }
 
 .twinkling{
-  background:transparent url('https://github.com/chaoticsunshine/Soulmate-Quiz/blob/main/stars.png') repeat top center;
+  background:transparent url('twinkling.png') repeat top center;
   z-index:1;
   animation:move-twink-back 300s linear infinite;
 }
