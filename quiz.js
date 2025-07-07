@@ -153,9 +153,10 @@ const keywords = {
       return showResults();
     }
 
+    const content = document.createElement("div");
+    content.classList.add("quiz-content");
+
     const q = questions[currentQuestion];
-    const questionWrapper = document.createElement("div");
-    questionWrapper.style.animationDelay = '0.3s';
 
     const questionEl = document.createElement("h2");
     questionEl.textContent = q.text;
@@ -176,18 +177,20 @@ const keywords = {
 
     quizContainer.appendChild(questionWrapper);
   }
+
  function getKeywordsForType(type) {
     return keywords[type] || "";
   }
+
  function showResults() {
   quizContainer.classList.remove("fade-in", "glow");
   quizContainer.classList.add("fade-out-fast");
 
   setTimeout(() => {
-    quizContainer.style.display = "none"; // Hide during in-between moment
     quizContainer.innerHTML = "";
-    quizContainer.classList.remove("fade-out-fast");
-    void quizContainer.offsetWidth;
+
+    const content = document.createElement("div");
+  content.classList.add("quiz-content");
 
     // Now build results
     const soulmateType = getTopType(soulmateScores);
