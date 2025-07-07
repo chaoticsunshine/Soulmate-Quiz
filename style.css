@@ -201,3 +201,23 @@ button:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(210, 162, 255, 0.5);
 }
+
+/* 🌙 Fade Animations */
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
