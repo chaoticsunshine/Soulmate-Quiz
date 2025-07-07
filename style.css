@@ -55,6 +55,33 @@ body {
   to { background-position: -10000px 5000px; }
 }
 
+/* 🌫️ Fog Background Layers */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  background-image: url('https://i.imgur.com/WiTQ5kK.png'); /* transparent fog layer */
+  background-size: cover;
+  opacity: 0.05;
+  z-index: -1;
+  animation: drift 60s linear infinite;
+}
+
+body::after {
+  background-image: url('https://i.imgur.com/WiTQ5kK.png');
+  animation-direction: reverse;
+  opacity: 0.035;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50%, -50%); }
+}
+
 /* 🌖 Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;600&display=swap');
 
