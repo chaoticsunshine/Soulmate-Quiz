@@ -1,18 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("start-btn").addEventListener("click", () => {
-    const titleScreen = document.getElementById("title-screen");
-    const quiz = document.getElementById("quiz");
-
-    titleScreen.classList.add("fade-out");
-
-    setTimeout(() => {
-      titleScreen.style.display = "none";
-      quiz.style.display = "block";
-      quiz.classList.add("fade-in");
-
-      renderQuestion(); // This now works because it's defined below
-    }, 1000);
-  });
+document.getElementById("start-btn").addEventListener("click", () => {
+  document.getElementById("title-screen").style.display = "none";
+  document.getElementById("quiz").style.display = "block";
+  renderQuestion();
 });
 
 const questions = [
@@ -211,4 +200,4 @@ function showResults() {
     container.appendChild(desc);
   }, 500); // match to fadeOutFast duration
 
-});
+renderQuestion();
