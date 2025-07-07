@@ -168,3 +168,48 @@ body {
     box-shadow: 0 0 25px rgba(211, 163, 255, 0.6), 0 0 40px rgba(211, 163, 255, 0.3);
   }
 }
+
+/* 🌟 Title Screen Styling */
+#title-screen {
+  max-width: 700px;
+  width: 90%;
+  background-color: #2a2339;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
+  text-align: center;
+  z-index: 3;
+}
+
+.quiz-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  color: #f2e9f0;
+  margin-bottom: 1rem;
+}
+
+.quiz-description {
+  font-size: 1.1rem;
+  color: #f3d9ff;
+  margin-bottom: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* 💫 Start Button */
+#start-btn {
+  background: linear-gradient(145deg, #6a3da1, #8a53c9);
+  color: #f5ecff;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 5px 20px rgba(177, 144, 221, 0.3);
+}
+
+#start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(210, 162, 255, 0.5);
+}
