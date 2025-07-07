@@ -6,7 +6,7 @@
   padding: 2rem;
   line-height: 1.6;
   letter-spacing: 0.3px;
-    z-index: 1;
+  z-index: 1;
     
   color: #f2e9f0;
   font-family: 'Cormorant Garamond', serif;
@@ -14,7 +14,7 @@
   padding: 0;
   line-height: 1.6;
   letter-spacing: 0.3px;
-    z-index: 2;
+  z-index: 2;
 
   display:block;
   justify-content: center;
@@ -23,7 +23,7 @@
   flex-direction: column;
   position: relative;
   overflow-x: hidden;
-    z-index: 3;
+  z-index: 3;
 }
 
 /* 🌖 Import a gentle serif + clean sans as backup */
@@ -56,7 +56,7 @@ p {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
-     z-index: 6;
+  z-index: 6;
 }
 
 /* 🌒 Answer Buttons */
@@ -75,7 +75,7 @@ button {
   font-family: 'Inter', sans-serif;
   box-shadow: 0 5px 15px rgba(123, 97, 154, 0.2);
   text-align: left;
-     z-index: 5;
+  z-index: 5;
 }
 
 button:hover {
