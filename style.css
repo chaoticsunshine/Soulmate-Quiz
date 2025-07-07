@@ -108,12 +108,12 @@ body::after {
   display:block;
 }
 .stars {
-  background:#000000 file(stars.png) repeat top center;
+  background:#000000 url('https://github.com/chaoticsunshine/Soulmate-Quiz/blob/main/stars.png') repeat top center;
   z-index:0;
 }
 
 .twinkling{
-  background:transparent file(twinkling.png) repeat top center;
+  background:transparent url('https://github.com/chaoticsunshine/Soulmate-Quiz/blob/main/stars.png') repeat top center;
   z-index:1;
   animation:move-twink-back 300s linear infinite;
 }
