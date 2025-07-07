@@ -74,7 +74,7 @@ const questions = [
     text: "You’re wandering through a strange forest and come across something unexpected. What do you do?",
     options: [
       { text: "Observe it from a distance until you understand what it is.", contributesTo: { soulmate: { 'The Iron Heart': 1, 'The Witchlight Mystic': 0.5 } } },
-      { text: "Touch it immediately. You want to see what happens!.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Playful Spark': 0.5 } } },
+      { text: "Touch it immediately. You want to see what happens!", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Playful Spark': 0.5 } } },
       { text: "Ask the the others in your group if anyone else can see it too.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Best Friend': 0.5 } } },
       { text: "Leave an offering or make a wish.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Witchlight Mystic': 0.5 } } }
     ]
