@@ -1,10 +1,12 @@
-document.getElementById("start-btn").addEventListener("click", () => {
-  document.getElementById("title-screen").style.display = "none";
-  document.getElementById("quiz").style.display = "block";
-  renderQuestion();
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const startButton = document.getElementById("start-btn");
+  const titleScreen = document.getElementById("title-screen");
+  const quizContainer = document.getElementById("quiz");
 
-const questions = [
+  const soulmateScores = {};
+  let currentQuestion = 0;
+
+  const questions = [
   {
     text: "You find yourself in a strange dream. You’re walking through a surreal landscape. What catches your attention first?",
     options: [
@@ -106,7 +108,7 @@ const questions = [
   }
 ];
 
-// Result descriptions for each archetype
+/*Result descriptions for each archetype*/
 const results = {
   "The Gentle Anchor": "Your soulmate is your safe place in a noisy world. They’re grounded and deeply compassionate, with a steady kind of love that doesn’t waver when things get hard. They won’t try to fix you or change you. Instead, they’ll simply be there, showing up with quiet acts of care, emotional warmth, and a rock-solid presence that brings you peace. With them, you don’t have to earn rest or affection. You just exist, and they love you for it. LINE This is the person who remembers how you like your tea, holds your hand in silence when words are too much, and always has a blanket ready. They’re not flashy or overly romantic, but their loyalty runs deep and unwavering. Being with them feels like floating - safe, calm, and steady. They don’t just help you weather the storm, they are the calm after it.",
   "The Witchlight Mystic": "Your soulmate is woven from moonlight and soft magic. They are deeply intuitive and seem to feel you in a way few others can. Whether they’re into astrology, herbs, tarot, or simply possess an innate emotional intelligence, they guide you gently toward healing, clarity, and self-discovery. They're both your calm and your catalyst. LINE They believe in growth, transformation, and the quiet beauty of change, and they want to evolve with you. Their love is nurturing, but never enabling. They hold space for your shadows without judgement and illuminate your light without envy. Being with them feels like having a personal spell cast over your life - one of peace, growth, and subtle magic. You won't just feel loved. You'll feel seen..",
@@ -122,82 +124,81 @@ const results = {
   "The Brewing Tempest": "Your soulmate is a living contradiction - and so are you, in a way. They're spontaneous yet sensitive, bold but tender, an ever-shifting weather pattern of love and emotion. They challenge you to embrace your complexity and show you that being “too much” is actually just right for the right person. LINE They’ll drag you into the rain, cry with you in the car, kiss you in public, and make dinner from scratch at midnight. They are intensity and softness held in one body. With them, love is not easy but it is real, raw, and transformative."
 };
 
-let currentQuestion = 0;
-const soulmateScores = {};
-
-function renderQuestion() {
-  const container = document.getElementById("quiz");
-  container.innerHTML = "";
-
-  if (currentQuestion >= questions.length) {
-    return showResults();
+ function getTopType(scoreObj) {
+    return Object.entries(scoreObj).reduce(
+      (top, current) => current[1] > top[1] ? current : top,
+      ["", -Infinity]
+    )[0];
   }
 
-  const q = questions[currentQuestion];
+  function renderQuestion() {
+    quizContainer.innerHTML = "";
 
-  // 🌟 Create a wrapper for fade-in animation
-  const questionWrapper = document.createElement("div");
-  questionWrapper.classList.add("fade-in"); // this triggers animation
-  questionWrapper.style.animationDelay = '0.3s';
+    if (currentQuestion >= questions.length) {
+      return showResults();
+    }
 
-  // Add question text
-  const questionEl = document.createElement("h2");
-  questionEl.textContent = q.text;
-  questionWrapper.appendChild(questionEl);
+    const q = questions[currentQuestion];
+    const questionWrapper = document.createElement("div");
+    questionWrapper.classList.add("fade-in");
+    questionWrapper.style.animationDelay = '0.3s';
 
-  // Add each answer button
-  q.options.forEach(option => {
-    const button = document.createElement("button");
-    button.textContent = option.text;
-    button.onclick = () => {
-      for (const [type, value] of Object.entries(option.contributesTo.soulmate)) {
-        soulmateScores[type] = (soulmateScores[type] || 0) + value;
-      }
-      currentQuestion++;
+    const questionEl = document.createElement("h2");
+    questionEl.textContent = q.text;
+    questionWrapper.appendChild(questionEl);
+
+    q.options.forEach(option => {
+      const button = document.createElement("button");
+      button.textContent = option.text;
+      button.onclick = () => {
+        for (const [type, value] of Object.entries(option.contributesTo.soulmate)) {
+          soulmateScores[type] = (soulmateScores[type] || 0) + value;
+        }
+        currentQuestion++;
+        renderQuestion();
+      };
+      questionWrapper.appendChild(button);
+    });
+
+    quizContainer.appendChild(questionWrapper);
+  }
+
+  function showResults() {
+    quizContainer.classList.remove("fade-in", "glow");
+    quizContainer.classList.add("fade-out-fast");
+
+    setTimeout(() => {
+      quizContainer.innerHTML = "";
+      quizContainer.classList.remove("fade-out-fast");
+      void quizContainer.offsetWidth;
+
+      quizContainer.classList.add("glow", "fade-in");
+
+      const soulmateType = getTopType(soulmateScores);
+
+      const title = document.createElement("h2");
+      title.textContent = `Your Soulmate Archetype: ${soulmateType}`;
+      quizContainer.appendChild(title);
+
+      results[soulmateType]
+        .split("LINE")
+        .forEach(paragraph => {
+          const p = document.createElement("p");
+          p.textContent = paragraph.trim();
+          quizContainer.appendChild(p);
+        });
+    }, 500);
+  }
+
+  // 🌟 Start button logic
+  startButton.addEventListener("click", () => {
+    titleScreen.classList.add("fade-out");
+
+    setTimeout(() => {
+      titleScreen.style.display = "none";
+      quizContainer.style.display = "block";
+      quizContainer.classList.add("fade-in");
       renderQuestion();
-    };
-    questionWrapper.appendChild(button);
+    }, 1000);
   });
-
-  // Append everything in the wrapper to the main quiz container
-  container.appendChild(questionWrapper);
-}
-
-function getTopType(scoreObj) {
-  // Returns the archetype key with the highest score in scoreObj
-  return Object.entries(scoreObj).reduce(
-    (top, current) => current[1] > top[1] ? current : top,
-    ["", -Infinity]
-  )[0];
-}
-
-function showResults() {
-  const container = document.getElementById("quiz");
-
-  // Step 1: Fade out current content
-  container.classList.remove("fade-in", "glow");
-  container.classList.add("fade-out-fast");
-
-  // Step 2: Wait for fade-out to finish
-  setTimeout(() => {
-    container.innerHTML = ""; // Now safe to clear content
-
-    // Reset classes and trigger reflow to restart animations
-    container.classList.remove("fade-out-fast");
-    void container.offsetWidth;
-
-    // Step 3: Add glow and fade-in for result
-    container.classList.add("glow", "fade-in");
-
-    const soulmateType = getTopType(soulmateScores);
-
-    const title = document.createElement("h2");
-    title.textContent = `💫 Your Soulmate Archetype: ${soulmateType}`;
-    container.appendChild(title);
-
-    const desc = document.createElement("p");
-    desc.textContent = results[soulmateType];
-    container.appendChild(desc);
-  }, 500); // match to fadeOutFast duration
-
-renderQuestion();
+});
