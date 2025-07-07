@@ -1,34 +1,63 @@
 a/* 🌘 General Layout */
 * {
-  color: #f2e9f0;
-  font-family: 'Playfair Display', serif;
-  margin: 0;
-  padding: 2rem;
-  line-height: 1.6;
-  letter-spacing: 0.3px;
-  z-index: 1;
-    
-  color: #f2e9f0;
-  font-family: 'Cormorant Garamond', serif;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  letter-spacing: 0.3px;
-  z-index: 2;
-
-  display:block;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
-  position: relative;
-  overflow-x: hidden;
-  z-index: 3;
 }
 
-/* 🌖 Import a gentle serif + clean sans as backup */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap');
+body {
+  background-color: #1d1a29;
+  background-image: url('stars.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #f2e9f0;
 
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/*starry layer*/
+.stars, .twinkling {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.stars {
+  background: #000 url('stars.png') repeat top center;
+  opacity: 0.06;
+}
+
+.twinkling {
+  background: transparent url('twinkling.png') repeat top center;
+  animation: move-twink-back 500s linear infinite;
+  opacity: 0.08;
+}
+
+@keyframes move-twink-back {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+}
+
+/* 🌖 Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;600&display=swap');
+
+/* 🌙 Headings */
 h1, h2 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
@@ -42,13 +71,14 @@ h2 {
   font-size: 1.6rem;
 }
 
+/* 📖 Paragraphs */
 p {
   margin: 1rem 0;
   font-size: 1.05rem;
   color: #f3d9ff;
 }
 
-/* 🌔 Quiz container */
+/* 🔮 Quiz Box */
 #quiz {
   max-width: 700px;
   width: 90%;
@@ -56,10 +86,10 @@ p {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
-  z-index: 6;
+  z-index: 5;
 }
 
-/* 🌒 Answer Buttons */
+/* 🎴 Tarot-style Answer Buttons */
 button {
   display: block;
   width: 100%;
@@ -75,39 +105,30 @@ button {
   font-family: 'Inter', sans-serif;
   box-shadow: 0 5px 15px rgba(123, 97, 154, 0.2);
   text-align: left;
-  z-index: 5;
 }
 
 button:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(177, 144, 221, 0.4);
   background: linear-gradient(145deg, #513570, #6a4793);
-    z-index: 4;
 }
 
-/*starry layer*/
-@keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
+/* 📱 Responsive Tweaks */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
 
-.stars, .twinkling {
-  position:relative;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  width:100%;
-  height:100%;
-  display:block;
-}
+  h2 {
+    font-size: 1.3rem;
+  }
 
-.stars {
-  background:#000000 url('stars.png') repeat top center;
-  z-index:-2;
-}
+  #quiz {
+    padding: 1.2rem;
+  }
 
-.twinkling{background:transparent url('twinkling.png') repeat top center;
-  z-index:-1;
-  animation:move-twink-back 500s linear infinite;
+  button {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
 }
