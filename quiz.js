@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOMContentLoaded fired");
   const startButton = document.getElementById("start-btn");
+  console.log("startButton is", startButton);
+
+  startButton.addEventListener("click", () => {
+    console.log("✨ Start button clicked!");
+
   const titleScreen = document.getElementById("title-screen");
   const quizContainer = document.getElementById("quiz");
 
