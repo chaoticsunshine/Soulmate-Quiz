@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #000;
+  background: transparent;
   background-image: none;
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,13 +43,13 @@ body {
 
 .stars {
   background: #000 url('stars.png') repeat top center;
-  opacity: 0.12;
+  opacity: 0.8;
 }
 
 .twinkling {
   background: transparent url('twinkling.png') repeat top center;
   animation: move-twink-back 500s linear infinite;
-  opacity: 0.16;
+  opacity: 1;
 }
 
 @keyframes move-twink-back {
