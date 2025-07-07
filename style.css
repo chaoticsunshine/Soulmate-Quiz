@@ -217,9 +217,15 @@ button:hover {
 
 /* 🌟 Title Screen Styling */
 #title-screen {
-  background: transparent;
-  padding: 0;
-  box-shadow: none;
+  max-width: 700px;
+  width: 90%;
+  background-color: #2a2339;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .quiz-title {
