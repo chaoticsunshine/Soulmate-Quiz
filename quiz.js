@@ -128,7 +128,6 @@ const soulmateScores = {};
 function renderQuestion() {
   const container = document.getElementById("quiz");
   container.innerHTML = "";
-  container.classList.add("glow");
   if (currentQuestion >= questions.length) {
     return showResults();
   }
@@ -164,6 +163,7 @@ function getTopType(scoreObj) {
 function showResults() {
   const container = document.getElementById("quiz");
   container.innerHTML = "";
+  container.classList.add("glow");
 
   const soulmateType = getTopType(soulmateScores);
 
