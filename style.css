@@ -101,6 +101,7 @@ button:hover {
   height:100%;
   display:block;
 }
+
 .stars {
   background:#000000 url('stars.png') repeat top center;
   z-index:-2;
