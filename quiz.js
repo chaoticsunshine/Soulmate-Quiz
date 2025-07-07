@@ -2,100 +2,100 @@ const questions = [
   {
     text: "You find yourself in a strange dream. You’re walking through a surreal landscape. What catches your attention first?",
     options: [
-      { text: "A. A glowing doorway hidden behind ivy, humming like it's alive.", contributesTo: { soulmate: { 'The Witchlight Mystic': 1, 'The Stargazer’s Mirror': 0.5 } } },
-      { text: "B. A magical fire crackling on its own in the centre of a clearing.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Loyal Blade': 0.5 } } },
-      { text: "C. A beautiful stranger watching you with kind eyes and no expression.", contributesTo: { soulmate: { 'The Gentle Anchor': 1, 'The Iron Heart': 0.5 } } },
-      { text: "D. A staircase twisting into the sky, daring you to climb.", contributesTo: { soulmate: { 'The Solar Siren': 1, 'The Power Pairing': 0.5 } } }
+      { text: "A glowing doorway hidden behind ivy, humming like it's alive.", contributesTo: { soulmate: { 'The Witchlight Mystic': 1, 'The Stargazer’s Mirror': 0.5 } } },
+      { text: "A magical fire crackling on its own in the centre of a clearing.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Loyal Blade': 0.5 } } },
+      { text: "A beautiful stranger watching you with kind eyes and no expression.", contributesTo: { soulmate: { 'The Gentle Anchor': 1, 'The Iron Heart': 0.5 } } },
+      { text: "A staircase twisting into the sky, daring you to climb.", contributesTo: { soulmate: { 'The Solar Siren': 1, 'The Power Pairing': 0.5 } } }
     ]
   },
   {
     text: "You’re invited to a gathering where you don’t know anyone. What do you do first?",
     options: [
-      { text: "A. Find the dog, the bookshelf, or a corner with snacks and stay there.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Playful Spark': 0.5 } } },
-      { text: "B. Start helping in the kitchen or tidying up, doing something that makes you feel useful.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Solar Siren': 0.5 } } },
-      { text: "C. Make a dramatic entrance and try to charm the first person you meet.", contributesTo: { soulmate: { 'The Iron Heart': 1, 'The Gentle Anchor': 0.5 } } },
-      { text: "D. Find the most interesting person in the room and strike up a conversation.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Witchlight Mystic': 0.5 } } }
+      { text: "Find the dog, the bookshelf, or a corner with snacks and stay there.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Playful Spark': 0.5 } } },
+      { text: "Start helping in the kitchen or tidying up, doing something that makes you feel useful.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Solar Siren': 0.5 } } },
+      { text: "Make a dramatic entrance and try to charm the first person you meet.", contributesTo: { soulmate: { 'The Iron Heart': 1, 'The Gentle Anchor': 0.5 } } },
+      { text: "Find the most interesting person in the room and strike up a conversation.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Witchlight Mystic': 0.5 } } }
     ]
   },
   {
     text: "When you first meet someone new, what instinct guides how you connect with them?",
     options: [
-      { text: "A. I notice their body language and try to mirror their energy.", contributesTo: { soulmate: { 'The Power Pairing': 1, 'The Firestarter': 0.5 } } },
-      { text: "B. I try to make them laugh or feel comfortable. It’s easier when everyone’s at ease.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Playful Spark': 0.5 } } },
-      { text: "C. I watch and listen for a while, and wait to see who they really are before revealing much.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Iron Heart': 0.5 } } },
-      { text: "D. I dive right in. It’s more honest to be fully myself upfront.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Witchlight Mystic': 0.5 } } }
+      { text: "I notice their body language and try to mirror their energy.", contributesTo: { soulmate: { 'The Power Pairing': 1, 'The Firestarter': 0.5 } } },
+      { text: "I try to make them laugh or feel comfortable. It’s easier when everyone’s at ease.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Playful Spark': 0.5 } } },
+      { text: "I watch and listen for a while, and wait to see who they really are before revealing much.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Iron Heart': 0.5 } } },
+      { text: "I dive right in. It’s more honest to be fully myself upfront.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Witchlight Mystic': 0.5 } } }
     ]
   },
   {
     text: "Which kind of love makes your heart ache in the best way?",
     options: [
-      { text: "A. The slow, growing kind, like two roots tangling quietly underground.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Gentle Anchor': 0.5 } } },
-      { text: "B. The fiery, instant kind where everything feels electric from the start.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Playful Spark': 0.5 } } },
-      { text: "C. The strange, fated kind, like you’ve met before in a dream.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Witchlight Mystic': 0.5 } } },
-      { text: "D. The fun, chaotic kind where nothing’s ever boring.", contributesTo: { soulmate: { 'The Playful Spark': 1, 'The Loyal Blade': 0.5 } } }
+      { text: "The slow, growing kind, like two roots tangling quietly underground.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Gentle Anchor': 0.5 } } },
+      { text: "The fiery, instant kind where everything feels electric from the start.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Playful Spark': 0.5 } } },
+      { text: "The strange, fated kind, like you’ve met before in a dream.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Witchlight Mystic': 0.5 } } },
+      { text: "The fun, chaotic kind where nothing’s ever boring.", contributesTo: { soulmate: { 'The Playful Spark': 1, 'The Loyal Blade': 0.5 } } }
     ]
   },
   {
     text: "Your inner world feels most like...",
     options: [
-      { text: "A. A foggy coastline full of secrets and hidden paths.", contributesTo: { soulmate: { 'The Witchlight Mystic': 1, 'The Stargazer’s Mirror': 0.5 } } },
-      { text: "B. A thunderstorm building in a still sky.", contributesTo: { soulmate: { 'The Gentle Anchor': 1, 'The Best Friend': 0.5 } } },
-      { text: "C. A garden full of colour, movement, and surprise.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Power Pairing': 0.5 } } },
-      { text: "D. A palace made of glass, symmetry, and music.", contributesTo: { soulmate: { 'The Solar Siren': 1, 'The Iron Heart': 0.5 } } }
+      { text: "A foggy coastline full of secrets and hidden paths.", contributesTo: { soulmate: { 'The Witchlight Mystic': 1, 'The Stargazer’s Mirror': 0.5 } } },
+      { text: "A thunderstorm building in a still sky.", contributesTo: { soulmate: { 'The Gentle Anchor': 1, 'The Best Friend': 0.5 } } },
+      { text: "A garden full of colour, movement, and surprise.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Power Pairing': 0.5 } } },
+      { text: "A palace made of glass, symmetry, and music.", contributesTo: { soulmate: { 'The Solar Siren': 1, 'The Iron Heart': 0.5 } } }
     ]
   },
   {
     text: "What kind of vulnerability scares you the most?",
     options: [
-      { text: "A. Being fully seen when you’re not at your best.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Gentle Anchor': 0.5 } } },
-      { text: "B. Letting go of control and not knowing the outcome.", contributesTo: { soulmate: { 'The Power Pairing': 1, 'The Solar Siren': 0.5 } } },
-      { text: "C. Trusting someone with something fragile.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Golden Heart': 0.5 } } },
-      { text: "D. Being emotionally dependent on someone else.", contributesTo: { soulmate: { 'The Iron Heart': 1, 'The Brewing Tempest': 0.5 } } }
+      { text: "Being fully seen when you’re not at your best.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Gentle Anchor': 0.5 } } },
+      { text: "Letting go of control and not knowing the outcome.", contributesTo: { soulmate: { 'The Power Pairing': 1, 'The Solar Siren': 0.5 } } },
+      { text: "Trusting someone with something fragile.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Golden Heart': 0.5 } } },
+      { text: "Being emotionally dependent on someone else.", contributesTo: { soulmate: { 'The Iron Heart': 1, 'The Brewing Tempest': 0.5 } } }
     ]
   },
   {
     text: "You’re wandering through a strange forest and come across something unexpected. What do you do?",
     options: [
-      { text: "A. Observe it from a distance until you understand what it is.", contributesTo: { soulmate: { 'The Iron Heart': 1, 'The Witchlight Mystic': 0.5 } } },
-      { text: "B. Touch it immediately. You want to see what happens!.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Playful Spark': 0.5 } } },
-      { text: "C. Ask the the others in your group if anyone else can see it too.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Best Friend': 0.5 } } },
-      { text: "D. Leave an offering or make a wish.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Witchlight Mystic': 0.5 } } }
+      { text: "Observe it from a distance until you understand what it is.", contributesTo: { soulmate: { 'The Iron Heart': 1, 'The Witchlight Mystic': 0.5 } } },
+      { text: "Touch it immediately. You want to see what happens!.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Playful Spark': 0.5 } } },
+      { text: "Ask the the others in your group if anyone else can see it too.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Best Friend': 0.5 } } },
+      { text: "Leave an offering or make a wish.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Witchlight Mystic': 0.5 } } }
     ]
   },
   {
     text: "You’re thrown into an unexpected group adventure. How do you contribute?",
     options: [
-      { text: "A. Take charge and figure out what needs to get done.", contributesTo: { soulmate: { 'The Power Pairing': 1, 'The Solar Siren': 0.5 } } },
-      { text: "B. Keep people laughing and boost morale.", contributesTo: { soulmate: { 'The Playful Spark': 1, 'The Golden Heart': 0.5 } } },
-      { text: "C. Mediate tension and make sure everyone’s okay.", contributesTo: { soulmate: { 'The Gentle Anchor': 1, 'The Iron Heart': 0.5 } } },
-      { text: "D. Handle logistics while keeping emotions calm.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Best Friend': 0.5 } } }
+      { text: "Take charge and figure out what needs to get done.", contributesTo: { soulmate: { 'The Power Pairing': 1, 'The Solar Siren': 0.5 } } },
+      { text: "Keep people laughing and boost morale.", contributesTo: { soulmate: { 'The Playful Spark': 1, 'The Golden Heart': 0.5 } } },
+      { text: "Mediate tension and make sure everyone’s okay.", contributesTo: { soulmate: { 'The Gentle Anchor': 1, 'The Iron Heart': 0.5 } } },
+      { text: "Handle logistics while keeping emotions calm.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Best Friend': 0.5 } } }
     ]
   },
   {
     text: "What brings out the strongest version of someone?",
     options: [
-      { text: "A. Having someone to rely on when things fall apart.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Gentle Anchor': 0.5 } } },
-      { text: "B. Trusting yourself fully, even when no one else does.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Brewing Tempest': 0.5 } } },
-      { text: "C. Turning your pain into something beautiful.", contributesTo: { soulmate: { 'The Witchlight Mystic': 1, 'The Stargazer’s Mirror': 0.5 } } },
-      { text: "D. Knowing who you are and taking up space without apology.", contributesTo: { soulmate: { 'The Solar Siren': 1, 'The Power Pairing': 0.5 } } }
+      { text: "Having someone to rely on when things fall apart.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Gentle Anchor': 0.5 } } },
+      { text: "Trusting yourself fully, even when no one else does.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Brewing Tempest': 0.5 } } },
+      { text: "Turning your pain into something beautiful.", contributesTo: { soulmate: { 'The Witchlight Mystic': 1, 'The Stargazer’s Mirror': 0.5 } } },
+      { text: "Knowing who you are and taking up space without apology.", contributesTo: { soulmate: { 'The Solar Siren': 1, 'The Power Pairing': 0.5 } } }
     ]
   },
   {
     text: "What kind of connection makes you feel like you’ve finally come home?",
     options: [
-      { text: "A. Someone who gets the weird, unspoken parts of me.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Firestarter': 0.5 } } },
-      { text: "B. Someone who shows up, every single time.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Gentle Anchor': 0.5 } } },
-      { text: "C. Someone who challenges me but makes me better.", contributesTo: { soulmate: { 'The Power Pairing': 1, 'The Loyal Blade': 0.5 } } },
-      { text: "D. Someone who sees the parts I usually keep hidden.", contributesTo: { soulmate: { 'The Witchlight Mystic': 1, 'The Golden Heart': 0.5 } } }
+      { text: "Someone who gets the weird, unspoken parts of me.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Firestarter': 0.5 } } },
+      { text: "Someone who shows up, every single time.", contributesTo: { soulmate: { 'The Best Friend': 1, 'The Gentle Anchor': 0.5 } } },
+      { text: "Someone who challenges me but makes me better.", contributesTo: { soulmate: { 'The Power Pairing': 1, 'The Loyal Blade': 0.5 } } },
+      { text: "Someone who sees the parts I usually keep hidden.", contributesTo: { soulmate: { 'The Witchlight Mystic': 1, 'The Golden Heart': 0.5 } } }
     ]
   },
   {
     text: "Where does your soul feel most at home?",
     options: [
-      { text: "A. A fog-draped shoreline where the sea whispers secrets to the rocks.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Gentle Anchor': 0.5 } } },
-      { text: "B. A stormlit mountain where fire dances under thunderclouds.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Brewing Tempest': 0.5 } } },
-      { text: "C. A sun-drenched cottage with open windows, music playing, and laughter drifting in the air.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Best Friend': 0.5 } } },
-      { text: "D. A quiet fortress in the woods, ivy-covered and unyielding, with warm candlelight in the windows.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Iron Heart': 0.5 } } }
+      { text: "A fog-draped shoreline where the sea whispers secrets to the rocks.", contributesTo: { soulmate: { 'The Stargazer’s Mirror': 1, 'The Gentle Anchor': 0.5 } } },
+      { text: "A stormlit mountain where fire dances under thunderclouds.", contributesTo: { soulmate: { 'The Firestarter': 1, 'The Brewing Tempest': 0.5 } } },
+      { text: "A sun-drenched cottage with open windows, music playing, and laughter drifting in the air.", contributesTo: { soulmate: { 'The Golden Heart': 1, 'The Best Friend': 0.5 } } },
+      { text: "A quiet fortress in the woods, ivy-covered and unyielding, with warm candlelight in the windows.", contributesTo: { soulmate: { 'The Loyal Blade': 1, 'The Iron Heart': 0.5 } } }
     ]
   }
 ];
