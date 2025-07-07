@@ -127,7 +127,8 @@ p {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
-  z-index: 5;
+  z-index: 2;
+  position:relative;
 }
 
 /* 🎴 Tarot-style Answer Buttons */
@@ -219,6 +220,13 @@ button:hover {
   color: #f3d9ff;
   margin-bottom: 2rem;
   font-family: 'Cormorant Garamond', serif;
+}
+
+#title-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 1;
 }
 
 /* 💫 Start Button */
