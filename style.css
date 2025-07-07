@@ -108,7 +108,7 @@ body::after {
   display:block;
 }
 .stars {
-  background:#1d1a29 url(stars.png) repeat top center;
+  background:#000 url(stars.png) repeat top center;
   z-index:0;
 }
 
