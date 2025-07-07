@@ -124,15 +124,7 @@ const results = {
   "The Brewing Tempest": "Your soulmate is a living contradiction - and so are you, in a way. They're spontaneous yet sensitive, bold but tender, an ever-shifting weather pattern of love and emotion. They challenge you to embrace your complexity and show you that being “too much” is actually just right for the right person. LINE They’ll drag you into the rain, cry with you in the car, kiss you in public, and make dinner from scratch at midnight. They are intensity and softness held in one body. With them, love is not easy but it is real, raw, and transformative."
 };
 
- function getTopType(scoreObj) {
-    return Object.entries(scoreObj).reduce(
-      (top, current) => current[1] > top[1] ? current : top,
-      ["", -Infinity]
-    )[0];
-  }
-
-  function getKeywordsForType(type) {
-    const keywords = {
+const keywords = {
       "The Gentle Anchor": "Grounded, nurturing, loyal, calm",
       "The Witchlight Mystic": "Spiritual, intuitive, healing, mysterious",
       "The Best Friend": "Comforting, dependable, supportive, playful",
@@ -146,7 +138,12 @@ const results = {
       "The Stargazer’s Mirror": "Thoughtful, deep, dreamy, strange",
       "The Brewing Tempest": "Intense, emotional, raw, complex"
     };
-    return keywords[type] || "";
+
+ function getTopType(scoreObj) {
+    return Object.entries(scoreObj).reduce(
+      (top, current) => current[1] > top[1] ? current : top,
+      ["", -Infinity]
+    )[0];
   }
 
   function renderQuestion() {
@@ -179,7 +176,9 @@ const results = {
 
     quizContainer.appendChild(questionWrapper);
   }
-
+ function getKeywordsForType(type) {
+    return keywords[type] || "";
+  }
  function showResults() {
   quizContainer.classList.remove("fade-in", "glow");
   quizContainer.classList.add("fade-out-fast");
