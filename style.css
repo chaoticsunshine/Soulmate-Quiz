@@ -1,6 +1,5 @@
 /* 🌘 General Layout */
 * {
-  background-color: #1d1a29;
   color: #f2e9f0;
   font-family: 'Playfair Display', serif;
   margin: 0;
@@ -82,46 +81,10 @@ button:hover {
   background: linear-gradient(145deg, #513570, #6a4793);
 }
 
-/* 🌑 Responsive tweaks */
-@media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  #quiz {
-    padding: 1.2rem;
-  }
-
-  button {
-    padding: 0.75rem;
-    font-size: 0.95rem;
-  }
-}
-
 /*starry layer*/
-body::after {
-  background-image: url('https://i.imgur.com/WiTQ5kK.png');
-  animation-direction: reverse;
-  opacity: 0.035;
-}
-
-@keyframes drift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-50%, -50%); }
-}
-
 @keyframes move-twink-back {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
-}
-
-@keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
 }
 
 .stars, .twinkling {
