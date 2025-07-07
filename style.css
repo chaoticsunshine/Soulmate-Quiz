@@ -1,46 +1,29 @@
-/* Box setup for both title and quiz */
-#title-screen,
-.quiz-container {
-  max-width: 700px;
-  width: 90%;
+/* make sure there are no stray extra braces! */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#title-screen, #quiz {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
   background: #2a2339;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(210,162,255,0.15);
+  color: #f2e9f0;
   text-align: center;
-  position: relative;
-  z-index: 2;
-  transition: opacity 1s ease;
+  border-radius: 8px;
 }
 
-/* Hide/show helper */
-.hidden { display: none !important; }
-
-/* Fade classes */
-.fade-out { opacity: 0; }
-.fade-in  { animation: fadeInUp 0.8s ease forwards; opacity: 0; }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px) }
-  to   { opacity: 1; transform: translateY(0) }
-}
-
-/* Buttons */
 button {
-  background: linear-gradient(145deg, #6a3da1, #8a53c9);
-  color: #f5ecff;
-  border: none; border-radius: 10px;
-  padding: 1rem 2rem;
-  font: 1.1rem Inter, sans-serif;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #6a3da1;
+  color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 5px 20px rgba(177,144,221,0.3);
-  transition: transform .2s, box-shadow .2s;
 }
 button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(210,162,255,0.5);
-  background: linear-gradient(145deg,#8a53c9,#6a3da1);
+  background: #8a53c9;
 }
-
-/* Question content wrapper, only animates once */
-.quiz-content { opacity: 0; animation: fadeInUp .8s ease forwards; }
