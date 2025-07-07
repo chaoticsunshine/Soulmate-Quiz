@@ -30,22 +30,6 @@ body {
    cursor: url('https://cdn.jsdelivr.net/gh/katthewitch/magic-cursors/star-cursor.png') 16 16, auto;
 }
 
-/* 🌫️ Fog Background Layers */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 200%;
-  height: 200%;
-  pointer-events: none;  
-  background-image: url('clouds.png'); /* transparent fog layer */
-  background-size: cover;
-  opacity: 0.1;
-  z-index: -2;
-  animation: drift 60s linear infinite;
-}
-
 /*starry layer*/
 .stars, .twinkling {
   position: fixed;
