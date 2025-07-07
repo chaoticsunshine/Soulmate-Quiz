@@ -46,7 +46,7 @@ p {
 /* 🌔 Quiz container */
 #quiz {
   max-width: 700px;
-  margin: 0 auto;
+  width: 90%;
   background-color: #2a2339;
   padding: 2rem;
   border-radius: 12px;
