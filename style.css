@@ -97,7 +97,7 @@ body::after {
     to {background-position:10000px 0;}
 }
 
-.stars, .twinkling, .clouds {
+.stars, .twinkling {
   position:absolute;
   top:0;
   left:0;
@@ -117,11 +117,3 @@ body::after {
   z-index:1;
   animation:move-twink-back 300s linear infinite;
 }
-
-.clouds{
-    background:transparent file(clouds.png) repeat top center;
-    z-index:2;
-    opacity: .4;
-    animation:move-clouds-back 300s linear infinite;
-}
-
