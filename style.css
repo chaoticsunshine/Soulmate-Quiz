@@ -49,7 +49,7 @@ body {
 .twinkling {
   background: transparent url('twinkling.png') repeat top center;
   animation: move-twink-back 500s linear infinite;
-  opacity: .1;
+  opacity: 0.1;
 }
 
 @keyframes move-twink-back {
