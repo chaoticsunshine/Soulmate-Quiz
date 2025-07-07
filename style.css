@@ -16,10 +16,14 @@
 }
 .stars {
   background:#000000 url('stars.png') repeat top center;
-  z-index:0;
+  z-index:-1;
 }
 
-.twinkling{
+.twinkling{background:transparent url('twinkling.png') repeat top center;
+  z-index:0;
+  animation:move-twink-back 300s linear infinite;
+}
+
   
 /* 🌘 General Layout */
 * {
@@ -104,7 +108,4 @@ button:hover {
   box-shadow: 0 8px 20px rgba(177, 144, 221, 0.4);
   background: linear-gradient(145deg, #513570, #6a4793);
 }
-  background:transparent url('twinkling.png') repeat top center;
-  z-index:1;
-  animation:move-twink-back 300s linear infinite;
-}
+ 
