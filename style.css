@@ -23,7 +23,9 @@ body {
   flex-direction: column;
 
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
 
    cursor: url('https://cdn.jsdelivr.net/gh/katthewitch/magic-cursors/star-cursor.png') 16 16, auto;
 }
