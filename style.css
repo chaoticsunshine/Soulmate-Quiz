@@ -66,7 +66,7 @@ body::after {
   pointer-events: none;
   background-image: url('clouds.png'); /* transparent fog layer */
   background-size: cover;
-  opacity: 0.06;
+  opacity: 0.1;
   z-index: -1;
   animation: drift 60s linear infinite;
 }
@@ -89,7 +89,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(15, 10, 20, 0.103);
+  background: rgba(15, 10, 20, 0.19);
   z-index: -1;
   pointer-events: none;
 }
@@ -100,8 +100,8 @@ body::after {
 /* 🌙 Headings */
 h1, h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
-  color: #f2e9f0;
+  font-weight: 350;
+  color: ##c6bfdb;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   text-align: center;
@@ -115,7 +115,7 @@ h2 {
 p {
   font-family: 'Inter', sans-serif;
   margin: 1rem 0;
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: #f3d9ff;
 }
 
@@ -217,9 +217,14 @@ button:hover {
 
 .quiz-description {
   font-size: 1.1rem;
+  text-align: center;
+  max-width: 600px;      /* adjust this to how narrow you want */
+  margin: 1rem auto;     /* auto horizontally centres it */
+  padding: 0 1rem;       /* optional: extra breathing room on small screens */
+  line-height: 1.5;
   color: #f3d9ff;
   margin-bottom: 2rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Inter', sans-serif;
 }
 
 #title-screen.fade-out {
@@ -227,6 +232,16 @@ button:hover {
   pointer-events: none;
   transition: opacity 1s ease;
   z-index: 1;
+}
+
+.keywords {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.3rem;
+  opacity: 0.8;
+  letter-spacing: 0.3px;
+  font-style: italic;
 }
 
 /* 💫 Start Button */
@@ -254,12 +269,17 @@ button:hover {
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; visibility: hidden; }
+  from { 
+    opacity: 1; 
+  }
+  to { 
+    opacity: 0; 
+    visibility: hidden; 
+  }
 }
 
 .fade-in {
-  animation: fadeInUp 1s forwards;
+  animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
 }
 

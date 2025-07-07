@@ -131,6 +131,24 @@ const results = {
     )[0];
   }
 
+  function getKeywordsForType(type) {
+    const keywords = {
+      "The Gentle Anchor": "Grounded, nurturing, loyal, calm",
+      "The Witchlight Mystic": "Spiritual, intuitive, healing, mysterious",
+      "The Best Friend": "Comforting, dependable, supportive, playful",
+      "The Golden Heart": "Warm, affectionate, joyful, kind",
+      "The Firestarter": "Passionate, bold, expressive, fiery",
+      "The Loyal Blade": "Fierce, honest, strong, protective",
+      "The Playful Spark": "Chaotic, funny, bright, spontaneous",
+      "The Iron Heart": "Stoic, tender, steady, protective",
+      "The Power Pairing": "Driven, magnetic, ambitious, equal",
+      "The Solar Siren": "Charming, glowing, confident, radiant",
+      "The Stargazer’s Mirror": "Thoughtful, deep, dreamy, strange",
+      "The Brewing Tempest": "Intense, emotional, raw, complex"
+    };
+    return keywords[type] || "";
+  }
+
   function renderQuestion() {
     quizContainer.innerHTML = "";
 
@@ -140,7 +158,6 @@ const results = {
 
     const q = questions[currentQuestion];
     const questionWrapper = document.createElement("div");
-    questionWrapper.classList.add("fade-in");
     questionWrapper.style.animationDelay = '0.3s';
 
     const questionEl = document.createElement("h2");
@@ -163,32 +180,41 @@ const results = {
     quizContainer.appendChild(questionWrapper);
   }
 
-  function showResults() {
-    quizContainer.classList.remove("fade-in", "glow");
-    quizContainer.classList.add("fade-out-fast");
+ function showResults() {
+  quizContainer.classList.remove("fade-in", "glow");
+  quizContainer.classList.add("fade-out-fast");
 
-    setTimeout(() => {
-      quizContainer.innerHTML = "";
-      quizContainer.classList.remove("fade-out-fast");
-      void quizContainer.offsetWidth;
+  setTimeout(() => {
+    quizContainer.style.display = "none"; // Hide during in-between moment
+    quizContainer.innerHTML = "";
+    quizContainer.classList.remove("fade-out-fast");
+    void quizContainer.offsetWidth;
 
-      quizContainer.classList.add("glow", "fade-in");
+    // Now build results
+    const soulmateType = getTopType(soulmateScores);
 
-      const soulmateType = getTopType(soulmateScores);
+    const title = document.createElement("h2");
+    title.textContent = `Your Soulmate Archetype: ${soulmateType}`;
+    quizContainer.appendChild(title);
 
-      const title = document.createElement("h2");
-      title.textContent = `Your Soulmate Archetype: ${soulmateType}`;
-      quizContainer.appendChild(title);
+    const keyWords = document.createElement("p");
+    keyWords.textContent = getKeywordsForType(soulmateType);
+    keyWords.classList.add("keywords");
+    quizContainer.appendChild(keyWords);
 
-      results[soulmateType]
-        .split("LINE")
-        .forEach(paragraph => {
-          const p = document.createElement("p");
-          p.textContent = paragraph.trim();
-          quizContainer.appendChild(p);
-        });
-    }, 500);
-  }
+    results[soulmateType]
+      .split("LINE")
+      .forEach(paragraph => {
+        const p = document.createElement("p");
+        p.textContent = paragraph.trim();
+        quizContainer.appendChild(p);
+      });
+
+    // Re-show and fade in
+    quizContainer.style.display = "block";
+    quizContainer.classList.add("glow", "fade-in");
+  }, 500);
+}
 
   // 🌟 Start button logic
   startButton.addEventListener("click", () => {
