@@ -1,19 +1,18 @@
-document.getElementById("start-btn").addEventListener("click", () => {
-  const titleScreen = document.getElementById("title-screen");
-  const quiz = document.getElementById("quiz");
+document.addEventListener("DOMContentLoaded", () => {
 
-  // Apply fade-out class
-  titleScreen.classList.add("fade-out");
+  document.getElementById("start-btn").addEventListener("click", () => {
+    const titleScreen = document.getElementById("title-screen");
+    const quiz = document.getElementById("quiz");
 
-  // Wait for animation to finish, then hide title and show quiz
-  setTimeout(() => {
-    titleScreen.style.display = "none";
-    quiz.style.display = "block";
-    quiz.classList.add("fade-in");
+    titleScreen.classList.add("fade-out");
 
-    renderQuestion();
-  }, 1000); // match this to fadeOut duration
-});
+    setTimeout(() => {
+      titleScreen.style.display = "none";
+      quiz.style.display = "block";
+      quiz.classList.add("fade-in");
+
+      renderQuestion();
+    }, 1000);
 
 const questions = [
   {
@@ -211,3 +210,4 @@ function showResults() {
     container.appendChild(desc);
   }, 500); // match to fadeOutFast duration
 
+});
