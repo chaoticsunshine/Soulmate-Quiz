@@ -1,315 +1,46 @@
-/* 🌘 General Layout */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: #000;
-  background-image: none;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  
-  font-family: 'Cormorant Garamond', serif;
-  line-height: 1.6;
-  letter-spacing: 0.3px;
-
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 100%;
-
-   cursor: url('https://cdn.jsdelivr.net/gh/katthewitch/magic-cursors/star-cursor.png') 16 16, auto;
-}
-
-/*starry layer*/
-.stars, .twinkling {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  pointer-events: none;
-  z-index: -2;
-}
-
-.stars {
-  background: #000 url('stars.png') repeat top center;
-}
-
-.twinkling {
-  background: transparent url('twinkling.png') repeat top center;
-  animation: move-twink-back 500s linear infinite;
-}
-
-@keyframes move-twink-back {
-  from { background-position: 0 0; }
-  to { background-position: -10000px 5000px; }
-}
-
-/* 🌫️ Fog Background Layers */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 200%;
-  height: 200%;
-  pointer-events: none;
-  background-image: url('clouds.png'); /* transparent fog layer */
-  background-size: cover;
-  opacity: 0.1;
-  z-index: -1;
-  animation: drift 60s linear infinite;
-}
-
-body::after {
-  background-image: url('clouds.png');
-  animation-direction: reverse;
-  opacity: 0.035;
-}
-
-@keyframes drift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-50%, -50%); }
-}
-
-/*overlay background*/
-.background-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 10, 20, 0.19);
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* 🌖 Font Imports */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;600&display=swap');
-
-/* 🌙 Headings */
-h1, h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 350;
-  color: ##c6bfdb;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.6rem;
-}
-
-/* 📖 Paragraphs */
-p {
-  font-family: 'Inter', sans-serif;
-  text-align: center;
-  max-width: 500px;         /* optional: limit line width for readability */
-  margin: 1rem auto;        /* centres and gives spacing */
-  line-height: 1.6;         /* optional: improves legibility */
-}
-}
-
-/* 🔮 Quiz Box */
-#quiz {
-  max-width: 700px;
-  width: 90%;
-  background-color: #2a2339;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
-  z-index: 2;
-  position: relative;
-  display: none;
-}
-
+/* Box setup for both title and quiz */
+#title-screen,
 .quiz-container {
   max-width: 700px;
   width: 90%;
-  background-color: #2a2339;
+  background: #2a2339;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
-  position: relative;
-  z-index: 2;
-  display: none; /* will toggle via JS */
-}
-
-.quiz-content {
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-}
-
-/* 🎴 Tarot-style Answer Buttons */
-button {
-  display: block;
-  width: 100%;
-  background: linear-gradient(145deg, #3f2d56, #4e3566);
-  border: none;
-  color: #f5ecff;
-  border-radius: 12px;
-  padding: 1.2rem;
-  font-size: 1rem;
-  margin: 1rem 0;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  font-family: 'Inter', sans-serif;
-  box-shadow: 0 5px 15px rgba(123, 97, 154, 0.2);
-  text-align: center;
-}
-
-button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(177, 144, 221, 0.4);
-  background: linear-gradient(145deg, #513570, #6a4793);
-}
-
-/* 📱 Responsive Tweaks */
-@media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  #quiz {
-    padding: 1.2rem;
-  }
-
-  button {
-    padding: 1rem;
-    font-size: 0.95rem;
-  }
-}
-
-/*results glow*/
-.glow {
-  animation: glow-border 2s ease-in-out forwards;
-  border: 2px solid #d3a3ff;
-  box-shadow: 0 0 0px rgba(211, 163, 255, 0);
-  transition: box-shadow 0.5s ease;
-}
-
-@keyframes glow-border {
-  0% {
-    box-shadow: 0 0 0 rgba(211, 163, 255, 0);
-  }
-  50% {
-    box-shadow: 0 0 15px rgba(211, 163, 255, 0.6), 0 0 25px rgba(211, 163, 255, 0.3);
-  }
-  100% {
-    box-shadow: 0 0 25px rgba(211, 163, 255, 0.6), 0 0 40px rgba(211, 163, 255, 0.3);
-  }
-}
-
-/* 🌟 Title Screen Styling */
-#title-screen {
-  max-width: 700px;
-  width: 90%;
-  background-color: #2a2339;
-  padding: 3rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
+  box-shadow: 0 0 30px rgba(210,162,255,0.15);
   text-align: center;
   position: relative;
   z-index: 2;
-}
-
-.quiz-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.4rem;
-  color: #f2e9f0;
-  margin-bottom: 1rem;
-}
-
-.quiz-description {
-  font-size: 1.1rem;
-  text-align: center;
-  max-width: 600px;      /* adjust this to how narrow you want */
-  margin: 1rem auto;     /* auto horizontally centres it */
-  padding: 0 1rem;       /* optional: extra breathing room on small screens */
-  line-height: 1.5;
-  color: #f3d9ff;
-  margin-bottom: 2rem;
-  font-family: 'Inter', sans-serif;
-}
-
-#title-screen.fade-out {
-  opacity: 0;
-  pointer-events: none;
   transition: opacity 1s ease;
-  z-index: 1;
 }
 
-.keywords {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.8rem;
-  text-align: center;
-  margin-top: 0.3rem;
-  opacity: 0.8;
-  letter-spacing: 0.3px;
-  font-style: italic;
-}
+/* Hide/show helper */
+.hidden { display: none !important; }
 
-/* 💫 Start Button */
-#start-btn {
-  background: linear-gradient(145deg, #6a3da1, #8a53c9);
-  color: #f5ecff;
-  border: none;
-  border-radius: 10px;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  font-family: 'Inter', sans-serif;
-  box-shadow: 0 5px 20px rgba(177, 144, 221, 0.3);
-}
-
-#start-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(210, 162, 255, 0.5);
-}
-
-/* 🌙 Fade Animations */
-.fade-out {
-  animation: fadeOut 1s forwards;
-}
-
-@keyframes fadeOut {
-  from { 
-    opacity: 1; 
-  }
-  to { 
-    opacity: 0; 
-    visibility: hidden; 
-  }
-}
-
-.fade-in {
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-}
+/* Fade classes */
+.fade-out { opacity: 0; }
+.fade-in  { animation: fadeInUp 0.8s ease forwards; opacity: 0; }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px) }
+  to   { opacity: 1; transform: translateY(0) }
 }
+
+/* Buttons */
+button {
+  background: linear-gradient(145deg, #6a3da1, #8a53c9);
+  color: #f5ecff;
+  border: none; border-radius: 10px;
+  padding: 1rem 2rem;
+  font: 1.1rem Inter, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(177,144,221,0.3);
+  transition: transform .2s, box-shadow .2s;
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(210,162,255,0.5);
+  background: linear-gradient(145deg,#8a53c9,#6a3da1);
+}
+
+/* Question content wrapper, only animates once */
+.quiz-content { opacity: 0; animation: fadeInUp .8s ease forwards; }
