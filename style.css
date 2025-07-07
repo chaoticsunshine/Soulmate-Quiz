@@ -1,4 +1,4 @@
-/* 🌘 General Layout */
+a/* 🌘 General Layout */
 * {
   color: #f2e9f0;
   font-family: 'Playfair Display', serif;
@@ -92,7 +92,7 @@ button:hover {
 }
 
 .stars, .twinkling {
-  position:absolute;
+  position:relative;
   top:0;
   left:0;
   right:0;
