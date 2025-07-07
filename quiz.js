@@ -139,28 +139,39 @@ const soulmateScores = {};
 function renderQuestion() {
   const container = document.getElementById("quiz");
   container.innerHTML = "";
+
   if (currentQuestion >= questions.length) {
     return showResults();
   }
 
   const q = questions[currentQuestion];
+
+  // 🌟 Create a wrapper for fade-in animation
+  const questionWrapper = document.createElement("div");
+  questionWrapper.classList.add("fade-in"); // this triggers animation
+  questionWrapper.style.animationDelay = '0.3s';
+
+  // Add question text
   const questionEl = document.createElement("h2");
   questionEl.textContent = q.text;
-  container.appendChild(questionEl);
+  questionWrapper.appendChild(questionEl);
 
+  // Add each answer button
   q.options.forEach(option => {
     const button = document.createElement("button");
     button.textContent = option.text;
     button.onclick = () => {
-      // Tally up “soulmate” points
       for (const [type, value] of Object.entries(option.contributesTo.soulmate)) {
         soulmateScores[type] = (soulmateScores[type] || 0) + value;
       }
       currentQuestion++;
       renderQuestion();
     };
-    container.appendChild(button);
+    questionWrapper.appendChild(button);
   });
+
+  // Append everything in the wrapper to the main quiz container
+  container.appendChild(questionWrapper);
 }
 
 function getTopType(scoreObj) {
