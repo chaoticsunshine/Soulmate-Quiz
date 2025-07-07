@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   document.getElementById("start-btn").addEventListener("click", () => {
     const titleScreen = document.getElementById("title-screen");
     const quiz = document.getElementById("quiz");
@@ -11,8 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
       quiz.style.display = "block";
       quiz.classList.add("fade-in");
 
-      renderQuestion();
+      renderQuestion(); // This now works because it's defined below
     }, 1000);
+  });
+});
 
 const questions = [
   {
