@@ -6,12 +6,12 @@
 }
 
 body {
-  background: transparent;
+  background-color: #000;
+  background-image: none;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  color: #f2e9f0;
-
+  
   font-family: 'Cormorant Garamond', serif;
   line-height: 1.6;
   letter-spacing: 0.3px;
