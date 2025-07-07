@@ -24,6 +24,8 @@ body {
 
   position: relative;
   overflow: hidden;
+
+   cursor: url('https://cdn.jsdelivr.net/gh/katthewitch/magic-cursors/star-cursor.png') 16 16, auto;
 }
 
 /*starry layer*/
@@ -141,11 +143,6 @@ button:hover {
     padding: 1rem;
     font-size: 0.95rem;
   }
-}
-
-/*cursor*/
-body {
-  cursor: url('https://cdn.jsdelivr.net/gh/katthewitch/magic-cursors/star-cursor.png') 16 16, auto;
 }
 
 /*results glow*/
