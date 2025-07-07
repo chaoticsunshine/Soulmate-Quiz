@@ -1,3 +1,9 @@
+document.getElementById("start-btn").addEventListener("click", () => {
+  document.getElementById("title-screen").style.display = "none";
+  document.getElementById("quiz").style.display = "block";
+  renderQuestion();
+});
+
 const questions = [
   {
     text: "You find yourself in a strange dream. You’re walking through a surreal landscape. What catches your attention first?",
