@@ -6,7 +6,7 @@ a/* 🌘 General Layout */
 }
 
 body {
-  background-color: #1d1a29;
+  background: transparent;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
