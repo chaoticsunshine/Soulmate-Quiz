@@ -200,4 +200,3 @@ function showResults() {
     container.appendChild(desc);
   }, 500); // match to fadeOutFast duration
 
-renderQuestion();
