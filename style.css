@@ -1,30 +1,83 @@
+/* 🌘 General Layout */
 body {
-  font-family: 'Georgia', serif;
-  background: #1c1c1c;
-  color: #eee;
+  background-color: #1d1a29;
+  color: #f2e9f0;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
   padding: 2rem;
   line-height: 1.6;
+  letter-spacing: 0.3px;
 }
 
-.quiz-container {
+/* 🌖 Import a gentle serif + clean sans as backup */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap');
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #eac9ff;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+p {
+  margin: 1rem 0;
+  font-size: 1.05rem;
+  color: #f3d9ff;
+}
+
+/* 🌔 Quiz container */
+#quiz {
   max-width: 700px;
   margin: 0 auto;
-  background: #2a2a2a;
+  background-color: #2a2339;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(210, 162, 255, 0.15);
 }
 
+/* 🌒 Answer Buttons */
 button {
-  background: #444;
-  color: #fff;
-  border: none;
-  padding: 1rem;
-  margin-top: 1rem;
-  cursor: pointer;
   display: block;
   width: 100%;
+  background: #3b2e4e;
+  color: #f5ecff;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1rem;
+  margin: 0.75rem 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
 }
 
 button:hover {
-  background: #666;
+  background-color: #5c3f6f;
+  transform: scale(1.02);
+}
+
+/* 🌑 Responsive tweaks */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  #quiz {
+    padding: 1.2rem;
+  }
+
+  button {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
 }
