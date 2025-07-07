@@ -45,21 +45,24 @@ p {
 button {
   display: block;
   width: 100%;
-  background: #3b2e4e;
+  background: linear-gradient(145deg, #3f2d56, #4e3566);
+  border: 1px solid #7c5f9a;
   color: #f5ecff;
-  border: none;
-  border-radius: 8px;
-  padding: 1rem;
+  border-radius: 12px;
+  padding: 1.2rem;
   font-size: 1rem;
-  margin: 0.75rem 0;
+  margin: 1rem 0;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   font-family: 'Inter', sans-serif;
+  box-shadow: 0 5px 15px rgba(123, 97, 154, 0.2);
+  text-align: left;
 }
 
 button:hover {
-  background-color: #5c3f6f;
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(177, 144, 221, 0.4);
+  background: linear-gradient(145deg, #513570, #6a4793);
 }
 
 /* 🌑 Responsive tweaks */
@@ -80,4 +83,30 @@ button:hover {
     padding: 0.75rem;
     font-size: 0.95rem;
   }
+
+/* 🌫️ Fog Background Layers */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  background-image: url('https://i.imgur.com/WiTQ5kK.png'); /* transparent fog layer */
+  background-size: cover;
+  opacity: 0.05;
+  z-index: -1;
+  animation: drift 60s linear infinite;
+}
+
+body::after {
+  background-image: url('https://i.imgur.com/WiTQ5kK.png');
+  animation-direction: reverse;
+  opacity: 0.035;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50%, -50%); }
 }
