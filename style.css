@@ -75,22 +75,7 @@ button:hover {
   background: linear-gradient(145deg, #513570, #6a4793);
 }
 
-/* 🌫️ Fog Background Layers */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 200%;
-  height: 200%;
-  pointer-events: none;
-  background-image: url('https://i.imgur.com/WiTQ5kK.png'); /* transparent fog layer */
-  background-size: cover;
-  opacity: 0.05;
-  z-index: -1;
-  animation: drift 60s linear infinite;
-}
-
+/*starry layer*/
 body::after {
   background-image: url('https://i.imgur.com/WiTQ5kK.png');
   animation-direction: reverse;
@@ -138,4 +123,20 @@ body::after {
     z-index:2;
     opacity: .4;
     animation:move-clouds-back 200s linear infinite;
+}
+
+/* 🌫️ Fog Background Layers */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  background-image: url('https://i.imgur.com/WiTQ5kK.png'); /* transparent fog layer */
+  background-size: cover;
+  opacity: 0.05;
+  z-index: -1;
+  animation: drift 60s linear infinite;
 }
