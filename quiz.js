@@ -1,16 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOMContentLoaded fired");
-  const startButton = document.getElementById("start-btn");
-  console.log("startButton is", startButton);
-
-  startButton.addEventListener("click", () => {
-    console.log("✨ Start button clicked!");
-
-  const titleScreen = document.getElementById("title-screen");
+  const startButton   = document.getElementById("start-btn");
+  const titleScreen   = document.getElementById("title-screen");
   const quizContainer = document.getElementById("quiz");
 
   const soulmateScores = {};
-  let currentQuestion = 0;
+  let currentQuestion  = 0;
 
   const questions = [
   {
@@ -145,93 +139,86 @@ const keywords = {
       "The Brewing Tempest": "Intense, emotional, raw, complex"
     };
 
- function getTopType(scoreObj) {
-    return Object.entries(scoreObj).reduce(
-      (top, current) => current[1] > top[1] ? current : top,
-      ["", -Infinity]
-    )[0];
-  }
+ startButton.addEventListener("click", () => {
+    titleScreen.classList.add("fade-out");
+    setTimeout(() => {
+      titleScreen.style.display = "none";
+      quizContainer.style.display = "block";
+      renderQuestion();
+    }, 1000);
+  });
 
-  function renderQuestion() {
-    quizContainer.innerHTML = "";
-
+ function renderQuestion() {
+    quizContainer.innerHTML = "";    // clear out old
     if (currentQuestion >= questions.length) {
       return showResults();
     }
 
-    const content = document.createElement("div");
-    content.classList.add("quiz-content");
-
     const q = questions[currentQuestion];
+    const container = document.createElement("div");
+    container.classList.add("quiz-content", "fade-in");
 
-    const questionEl = document.createElement("h2");
-    questionEl.textContent = q.text;
-    content.appendChild(questionEl);
+    // question text
+    const h2 = document.createElement("h2");
+    h2.textContent = q.text;
+    container.appendChild(h2);
 
-    q.options.forEach(option => {
-      const button = document.createElement("button");
-      button.textContent = option.text;
-      button.onclick = () => {
-        for (const [type, value] of Object.entries(option.contributesTo.soulmate)) {
-          soulmateScores[type] = (soulmateScores[type] || 0) + value;
-        }
+    // answer buttons
+    q.options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.textContent = opt.text;
+      btn.addEventListener("click", () => {
+        // tally
+        Object.entries(opt.contributesTo.soulmate)
+          .forEach(([type, val]) => {
+            soulmateScores[type] = (soulmateScores[type] || 0) + val;
+          });
         currentQuestion++;
         renderQuestion();
-      };
-      content.appendChild(button);
+      });
+      container.appendChild(btn);
     });
 
-    quizContainer.appendChild(content);
+    quizContainer.appendChild(container);
   }
 
- function getKeywordsForType(type) {
-    return keywords[type] || "";
+  function getTopType(scores) {
+    return Object.entries(scores)
+      .reduce((best, curr) => curr[1] > best[1] ? curr : best, ["", -Infinity])[0];
   }
 
- function showResults() {
-  quizContainer.classList.remove("fade-in", "glow");
-  quizContainer.classList.add("fade-out-fast");
-
-  setTimeout(() => {
-    quizContainer.innerHTML = "";
-
-    const content = document.createElement("div");
-  content.classList.add("quiz-content");
-
-    // Now build results
-    quizContainer.innerHTML = "";
-
-    const content = document.createElement("div");
-    content.classList.add("quiz-content");
-
-    // Build into `content`, not `quizContainer`
-    content.appendChild(title);
-    content.appendChild(keyWords);
-    results[soulmateType]
-      .split("LINE")
-      .forEach(paragraph => {
-        const p = document.createElement("p");
-        p.textContent = paragraph.trim();
-        content.appendChild(p);
-      });
-
-    quizContainer.appendChild(content);
-
-    // Re-show and fade in
-    quizContainer.style.display = "block";
-    quizContainer.classList.add("glow", "fade-in");
-  }, 500);
-}
-
-  // 🌟 Start button logic
-  startButton.addEventListener("click", () => {
-    titleScreen.classList.add("fade-out");
+  function showResults() {
+    quizContainer.classList.remove("fade-in");
+    quizContainer.classList.add("fade-out-fast");
 
     setTimeout(() => {
-      titleScreen.style.display = "none";
-      quizContainer.style.display = "block";
-      quizContainer.classList.add("fade-in");
-      renderQuestion();
-    }, 1000);
-  });
+      quizContainer.innerHTML = "";   // clear old
+
+      const soulmateType = getTopType(soulmateScores);
+      const container    = document.createElement("div");
+      container.classList.add("quiz-content", "fade-in", "glow");
+
+      // title
+      const h2 = document.createElement("h2");
+      h2.textContent = `💫 Your Soulmate Archetype: ${soulmateType}`;
+      container.appendChild(h2);
+
+      // keywords
+      const kw = document.createElement("p");
+      kw.textContent = keywords[soulmateType] || "";
+      kw.classList.add("keywords");
+      container.appendChild(kw);
+
+      // description paragraphs
+      results[soulmateType]
+        .split("LINE")
+        .forEach(txt => {
+          const p = document.createElement("p");
+          p.textContent = txt.trim();
+          container.appendChild(p);
+        });
+
+      quizContainer.appendChild(container);
+    }, 500);
+  }
 });
