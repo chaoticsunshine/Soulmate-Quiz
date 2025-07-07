@@ -76,25 +76,6 @@ button:hover {
   background: linear-gradient(145deg, #513570, #6a4793);
 }
 
-/* 🌑 Responsive tweaks */
-@media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  #quiz {
-    padding: 1.2rem;
-  }
-
-  button {
-    padding: 0.75rem;
-    font-size: 0.95rem;
-  }
-
 /* 🌫️ Fog Background Layers */
 body::before,
 body::after {
