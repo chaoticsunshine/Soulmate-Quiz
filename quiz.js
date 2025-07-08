@@ -139,11 +139,13 @@ const keywords = {
       "The Brewing Tempest": "Intense, emotional, raw, complex"
     };
 
- startButton.addEventListener("click", () => {
+  startButton.addEventListener("click", () => {
     titleScreen.classList.add("fade-out");
+
     setTimeout(() => {
       titleScreen.style.display = "none";
       quizContainer.style.display = "block";
+      quizContainer.classList.add("fade-in");
       renderQuestion();
     }, 1000);
   });
@@ -187,22 +189,24 @@ const keywords = {
       .reduce((best, curr) => curr[1] > best[1] ? curr : best, ["", -Infinity])[0];
   }
 
-  function showResults() {
-    quizContainer.classList.remove("fade-in");
+ function showResults() {
+    quizContainer.classList.remove("fade-in", "glow");
     quizContainer.classList.add("fade-out-fast");
 
-    setTimeout(() => {
-      quizContainer.innerHTML = "";   // clear old
+     setTimeout(() => {
+      quizContainer.innerHTML = "";
+      quizContainer.classList.remove("fade-out-fast");
+
+      const content = document.createElement("div");
+      content.classList.add("quiz-content");
 
       const soulmateType = getTopType(soulmateScores);
-      const container    = document.createElement("div");
-      container.classList.add("quiz-content", "fade-in", "glow");
 
       // title
-      const h2 = document.createElement("h2");
-      h2.textContent = `💫 Your Soulmate Archetype: ${soulmateType}`;
-      container.appendChild(h2);
-
+      const title = document.createElement("h2");
+      title.textContent = `Your Soulmate Archetype: ${soulmateType}`;
+      content.appendChild(title);
+    
       // keywords
       const kw = document.createElement("p");
       kw.textContent = keywords[soulmateType] || "";
@@ -212,13 +216,15 @@ const keywords = {
       // description paragraphs
       results[soulmateType]
         .split("LINE")
-        .forEach(txt => {
+        .forEach(paragraph => {
           const p = document.createElement("p");
-          p.textContent = txt.trim();
-          container.appendChild(p);
+          p.textContent = paragraph.trim();
+          content.appendChild(p);
         });
 
-      quizContainer.appendChild(container);
+      quizContainer.appendChild(content);
+      quizContainer.style.display = "block";
+      quizContainer.classList.add("glow", "fade-in");
     }, 500);
   }
 });
