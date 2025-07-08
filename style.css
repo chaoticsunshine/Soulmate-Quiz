@@ -132,11 +132,17 @@ p {
 }
 
 .quiz-content {
+  .quiz-content {
   animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
-  width: 100%;
-  display: block;
-  box-sizing: border-box
+}
+
+/* ✨ Quiz Container Glow */
+#quiz.glow {
+  box-shadow: 0 0 25px rgba(211, 163, 255, 0.6), 0 0 40px rgba(211, 163, 255, 0.3);
+  border: 2px solid #d3a3ff;
+  animation: glow-border 2s ease-in-out forwards;
+  z-index: 3;
 }
 
 /* 🎴 Tarot-style Answer Buttons */
@@ -181,16 +187,6 @@ button:hover {
     padding: 1rem;
     font-size: 0.95rem;
   }
-}
-
-/*results glow*/
-.glow {
-  animation: glow-border 2s ease-in-out forwards;
-  border: 2px solid #d3a3ff;
-  box-shadow: 0 0 0px rgba(211, 163, 255, 0);
-  transition: box-shadow 0.5s ease;
-  overflow: visible;
-  min-height: 200px; /* or whatever suits your content */
 }
 
 @keyframes glow-border {
