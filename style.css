@@ -66,6 +66,22 @@ body::after {
   100% { transform: translate(-50%, -50%); }
 }
 
+/* 🌫️ Fog Background Layers */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  background-image: url('clouds.png'); /* transparent fog layer */
+  background-size: cover;
+  opacity: 0.2;
+  z-index: -1;
+  animation: drift 60s linear infinite;
+}
+
 /*overlay background*/
 .background-overlay {
   position: fixed;
