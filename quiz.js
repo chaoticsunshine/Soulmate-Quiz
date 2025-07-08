@@ -166,7 +166,7 @@ const keywords = {
       btn.textContent = opt.text;
       btn.addEventListener("click", () => {
         // tally
-        Object.entries(opt.soulmate).forEach(([type,val]) => {
+        Object.entries(opt.contributesTo.soulmate).forEach(([type,val]) => {
           soulmateScores[type] = (soulmateScores[type]||0) + val;
         });
         currentQuestion++;
