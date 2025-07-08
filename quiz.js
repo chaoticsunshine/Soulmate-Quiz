@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const startButton   = document.getElementById("start-btn");
-  const titleScreen   = document.getElementById("title-screen");
-  const quizContainer = document.getElementById("quiz");
+  const startBtn    = document.getElementById("start-btn");
+  const titleScreen = document.getElementById("title-screen");
+  const quizEl      = document.getElementById("quiz");
 
+  let currentQuestion = 0;
   const soulmateScores = {};
-  let currentQuestion  = 0;
 
   const questions = [
   {
@@ -139,92 +139,93 @@ const keywords = {
       "The Brewing Tempest": "Intense, emotional, raw, complex"
     };
 
-  startButton.addEventListener("click", () => {
-    titleScreen.classList.add("fade-out");
+  function clearAnimations() {
+    quizEl.classList.remove("fade-in","fade-out","glow");
+  }
 
-    setTimeout(() => {
-      titleScreen.style.display = "none";
-      quizContainer.style.display = "block";
-      quizContainer.classList.add("fade-in");
-      renderQuestion();
-    }, 1000);
-  });
+  function renderQuestion() {
+    clearAnimations();
+    quizEl.innerHTML = "";  // wipe old
 
- function renderQuestion() {
-    quizContainer.innerHTML = "";    // clear out old
     if (currentQuestion >= questions.length) {
       return showResults();
     }
 
     const q = questions[currentQuestion];
     const container = document.createElement("div");
-    container.classList.add("quiz-content", "fade-in");
+    container.classList.add("quiz-content","fade-in");
 
-    // question text
+    // question
     const h2 = document.createElement("h2");
     h2.textContent = q.text;
     container.appendChild(h2);
 
-    // answer buttons
+    // answers
     q.options.forEach(opt => {
       const btn = document.createElement("button");
       btn.textContent = opt.text;
       btn.addEventListener("click", () => {
         // tally
-        Object.entries(opt.contributesTo.soulmate)
-          .forEach(([type, val]) => {
-            soulmateScores[type] = (soulmateScores[type] || 0) + val;
-          });
+        Object.entries(opt.soulmate).forEach(([type,val]) => {
+          soulmateScores[type] = (soulmateScores[type]||0) + val;
+        });
         currentQuestion++;
         renderQuestion();
       });
       container.appendChild(btn);
     });
 
-    quizContainer.appendChild(container);
+    quizEl.appendChild(container);
   }
 
-  function getTopType(scores) {
-    return Object.entries(scores)
-      .reduce((best, curr) => curr[1] > best[1] ? curr : best, ["", -Infinity])[0];
+  function getTopType() {
+    return Object.entries(soulmateScores)
+      .sort((a,b)=>b[1]-a[1])[0]?.[0] || "";
   }
 
- function showResults() {
-    quizContainer.classList.remove("fade-in", "glow");
-    quizContainer.classList.add("fade-out-fast");
-
-     setTimeout(() => {
-      quizContainer.innerHTML = "";
-      quizContainer.classList.remove("fade-out-fast");
+  function showResults() {
+    clearAnimations();
+    quizEl.classList.add("fade-out");
+    setTimeout(() => {
+      clearAnimations();
+      quizEl.innerHTML = "";
 
       const content = document.createElement("div");
       content.classList.add("quiz-content");
 
-      const soulmateType = getTopType(soulmateScores);
+      const archetype = getTopType();
 
       // title
-      const title = document.createElement("h2");
-      title.textContent = `Your Soulmate Archetype: ${soulmateType}`;
-      content.appendChild(title);
-    
+      const titleH2 = document.createElement("h2");
+      titleH2.textContent = `💫 Your Soulmate Archetype: ${archetype}`;
+      content.appendChild(titleH2);
+
       // keywords
       const kw = document.createElement("p");
-      kw.textContent = keywords[soulmateType] || "";
+      kw.textContent = keywords[archetype] || "";
       kw.classList.add("keywords");
-     content.appendChild(kw);
+      content.appendChild(kw);
 
-      // description paragraphs
-      results[soulmateType]
-        .split("LINE")
-        .forEach(paragraph => {
-          const p = document.createElement("p");
-          p.textContent = paragraph.trim();
-          content.appendChild(p);
-        });
+      // description
+      results[archetype].split("LINE").forEach(txt => {
+        const p = document.createElement("p");
+        p.textContent = txt.trim();
+        content.appendChild(p);
+      });
 
-      quizContainer.appendChild(content);
-      quizContainer.style.display = "block";
-      quizContainer.classList.add("glow", "fade-in");
+      quizEl.appendChild(content);
+      quizEl.classList.add("glow","fade-in");
     }, 500);
   }
+
+  // --- Start button handler ---
+  startBtn.addEventListener("click", () => {
+    titleScreen.classList.add("fade-out");
+    setTimeout(() => {
+      titleScreen.style.display   = "none";
+      quizEl.style.display        = "block";
+      quizEl.classList.add("fade-in");
+      renderQuestion();
+    }, 1000);
+  });
 });
