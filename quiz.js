@@ -211,7 +211,7 @@ const keywords = {
       const kw = document.createElement("p");
       kw.textContent = keywords[soulmateType] || "";
       kw.classList.add("keywords");
-      container.appendChild(kw);
+     content.appendChild(kw);
 
       // description paragraphs
       results[soulmateType]
