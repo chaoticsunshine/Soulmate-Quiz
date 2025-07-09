@@ -17,7 +17,7 @@ body {
 }
 button:hover, button:focus, button:active,
 a:hover, a:focus, a:active {
-  cursor: url('pointer.png') 0 0, pointer;
+  cursor: url('pointer.png') 0 0, auto;
 }
 
 
