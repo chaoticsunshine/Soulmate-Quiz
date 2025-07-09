@@ -175,7 +175,8 @@ const keywords = {
       container.appendChild(btn);
     });
 
-    quizEl.appendChild(container);
+    quizEl.appendChild(content);
+    requestAnimationFrame( () => contnt.classList.add("fade-in"));
   }
 
   function getTopType() {
@@ -184,16 +185,17 @@ const keywords = {
   }
 
   function showResults() {
-    quizEl.classList.remove("visible", "fade-in", "glow");
-    quizEl.classList.add("fade-out-fast");
+    quizEl.classList.remove("fade-in", "glow");
+    quizEl.classList.add("fade-out");
     setTimeout(() => {
-      quizEl.classList.remove("fade-out-fast");
+      quizEl.style.display = "none";
+      const archetype = getTopType(soulmateScores);
       quizEl.innerHTML = "";
+      quizEl.classList.remove("fade-out");
+      quizEl.style.display = "flex"
 
       const content = document.createElement("div");
       content.classList.add("quiz-content");
-
-      const archetype = getTopType();
 
       // title
       const titleH2 = document.createElement("h2");
@@ -214,7 +216,10 @@ const keywords = {
       });
 
       quizEl.appendChild(content);
-      quizEl.classList.add("visible","glow","fade-in");
+      quizEl.classList.add("glow");
+      requestAnimationFrame( ()=>{
+       content.classList.add("fade-in"); 
+      });
     }, 500);
   }
 
@@ -223,7 +228,7 @@ const keywords = {
     titleScreen.classList.add("fade-out");
     setTimeout(() => {
       titleScreen.style.display   = "none";
-      quizEl.style.display        = "block";
+      quizEl.style.display        = "flex";
       quizEl.classList.add("fade-in");
       renderQuestion();
     }, 1000);

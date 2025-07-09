@@ -11,15 +11,15 @@ body {
   color: #f3d9ff;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  min-height: 100vh; overflow: auto;
+  min-height: 100vh; overflow: hidden;
   position: relative;
+}
+body, button, a {
   cursor: url('cursor.png') 1 0, auto;
 }
-button:hover, button:focus, button:active,
-a:hover, a:focus, a:active {
-  cursor: url('pointer.png') 0 0, auto;
+button:hover {
+  cursor: url('pointer.png') 0 0, pointer;
 }
-
 
 /* 🌌 Star layers */
 .stars, .twinkling {
@@ -58,7 +58,6 @@ body::after { opacity:0.035; animation-direction: reverse; }
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(210,162,255,.15);
   text-align: center; z-index:1;
-  max-width:600px;
 }
 .quiz-title {font-size:1.3rem; color:#f2e9f0; margin-bottom:1rem; font-weight: 400; letter-spacing: 0.3px}
 .quiz-description {
@@ -80,28 +79,18 @@ body::after { opacity:0.035; animation-direction: reverse; }
 }
 
 /* 🔮 Quiz Container */
-.quiz-container {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5 ease;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* this vertically centres */
-  align-items: center;     /* this horizontally centres */
-  
+#quiz.quiz-container {
+  display: none;
   max-width:600px; width:90%;
   background:#2a2339; padding:2rem;
   border-radius:12px;
   box-shadow:0 0 30px rgba(210,162,255,.15);
   position:relative; z-index:1;
   min-height: 400px;
-}
-
-/*when visible*/
-.quiz-container.visible {
-  opacity: 1;
-  visibility: visible;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* this vertically centres */  
 }
 
 /* 🔥 Glow for Results */
