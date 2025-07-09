@@ -184,7 +184,7 @@ const keywords = {
   }
 
   function showResults() {
-    quizEl.classList.remove("fade-in", "glow");
+    quizEl.classList.remove("visible", "fade-in", "glow");
     quizEl.classList.add("fade-out-fast");
     setTimeout(() => {
       quizEl.classList.remove("fade-out-fast");
@@ -214,8 +214,7 @@ const keywords = {
       });
 
       quizEl.appendChild(content);
-      quizEl.style.display = "block";
-      quizEl.classList.add("glow","fade-in");
+      quizEl.classList.add("visible","glow","fade-in");
     }, 500);
   }
 
