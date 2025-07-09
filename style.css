@@ -84,7 +84,10 @@ body::after { opacity:0.035; animation-direction: reverse; }
 
 /* 🔮 Quiz Container */
 .quiz-container {
-  display: none; /* shown via JS on start */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* this vertically centres */
+  align-items: center;     /* this horizontally centres */
   max-width:600px; width:90%;
   background:#2a2339; padding:2rem;
   border-radius:12px;
@@ -120,7 +123,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
 }
 .quiz-content p.keywords {
   font-family:'Cormorant Garamond',serif; font-style:italic;
-  font-size:0.9rem; opacity:.8; margin-bottom:1.5rem;
+  font-size:0.9rem; opacity:.8; margin-bottom:1rem;
 }
 
 /* 🔘 Answer Buttons */
