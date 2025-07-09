@@ -83,11 +83,13 @@ body::after { opacity:0.035; animation-direction: reverse; }
 /* 🔮 Quiz Container */
 .quiz-container {
   display: none; /* shown via JS on start */
-  max-width:700px; width:90%;
+  max-width:500px; width:90%;
   background:#2a2339; padding:2rem;
   border-radius:12px;
   box-shadow:0 0 30px rgba(210,162,255,.15);
   position:relative; z-index:1;
+  min-height: 400px;
+  transition: min-height 0.3s ease;
 }
 
 /* 🔥 Glow for Results */
@@ -136,7 +138,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
 }
 
 /* 📱 Responsive */
-@media (max-width:600px) {
+@media (max-width:500px) {
   .quiz-container { padding:1.2rem; }
   .quiz-content h2 { font-size:1.3rem; }
   .quiz-content button { padding:1rem; font-size:.95rem; }

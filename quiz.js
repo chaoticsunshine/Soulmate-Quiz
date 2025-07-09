@@ -184,10 +184,10 @@ const keywords = {
   }
 
   function showResults() {
-    clearAnimations();
-    quizEl.classList.add("fade-out");
+    quizEl.classList.remove("fade-in", "glow");
+    quizEl.classList.add("fade-out-fast");
     setTimeout(() => {
-      clearAnimations();
+      quizEl.classList.remove("fade-out-fast");
       quizEl.innerHTML = "";
 
       const content = document.createElement("div");
@@ -214,6 +214,7 @@ const keywords = {
       });
 
       quizEl.appendChild(content);
+      quizEl.style.display = "block";
       quizEl.classList.add("glow","fade-in");
     }, 500);
   }
