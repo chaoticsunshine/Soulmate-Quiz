@@ -13,7 +13,7 @@ body {
   align-items: center; justify-content: center;
   min-height: 100vh; overflow: auto;
   position: relative;
-  cursor: url('cursor.png') 1 0, default;
+  cursor: url('cursor.png') 1 0, auto;
 }
 button:hover, button:focus, button:active,
 a:hover, a:focus, a:active {
