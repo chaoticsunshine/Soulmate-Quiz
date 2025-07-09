@@ -197,7 +197,7 @@ const keywords = {
 
       // title
       const titleH2 = document.createElement("h2");
-      titleH2.textContent = `💫 Your Soulmate Archetype: ${archetype}`;
+      titleH2.textContent = `Your Soulmate Archetype: ${archetype}`;
       content.appendChild(titleH2);
 
       // keywords
