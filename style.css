@@ -61,6 +61,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(210,162,255,.15);
   text-align: center; z-index:1;
+  max-width:600px;
 }
 .quiz-title {font-size:1.3rem; color:#f2e9f0; margin-bottom:1rem; font-weight: 400; letter-spacing: 0.3px}
 .quiz-description {
