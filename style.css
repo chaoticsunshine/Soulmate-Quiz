@@ -40,7 +40,7 @@ body::before, body::after {
   content:""; position: fixed;
   top:0; left:0; width:200%; height:200%;
   pointer-events:none; background: url('clouds.png') no-repeat center/cover;
-  opacity:0.2; z-index:-2; animation: drift 60s linear infinite;
+  opacity:0.4; z-index:-2; animation: drift 60s linear infinite;
 }
 body::after { opacity:0.035; animation-direction: reverse; }
 @keyframes drift { to { transform: translate(-50%, -50%); } }
