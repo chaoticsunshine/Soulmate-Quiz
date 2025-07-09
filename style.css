@@ -18,7 +18,8 @@ body {
 body, button, a {
   cursor: url('cursor.png') 1 0, auto;
 }
-button:hover, a:hover {
+button:hover, button:focus, button:active,
+a:hover, a:focus, a:active {
   cursor: url('pointer.png') 0 0, pointer;
 }
 
