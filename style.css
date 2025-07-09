@@ -13,9 +13,6 @@ body {
   align-items: center; justify-content: center;
   min-height: 100vh; overflow: auto;
   position: relative;
-}
-
-body, {
   cursor: url('cursor.png') 1 0, default;
 }
 button:hover, button:focus, button:active,
@@ -84,17 +81,27 @@ body::after { opacity:0.035; animation-direction: reverse; }
 
 /* 🔮 Quiz Container */
 .quiz-container {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5 ease;
+  
   display: flex;
   flex-direction: column;
   justify-content: center; /* this vertically centres */
   align-items: center;     /* this horizontally centres */
+  
   max-width:600px; width:90%;
   background:#2a2339; padding:2rem;
   border-radius:12px;
   box-shadow:0 0 30px rgba(210,162,255,.15);
   position:relative; z-index:1;
   min-height: 400px;
-  transition: min-height 0.3s ease;
+}
+
+/*when visible*/
+.quiz-container.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* 🔥 Glow for Results */
