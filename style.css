@@ -15,7 +15,7 @@ body {
   position: relative;
 }
 
-body, button, a {
+body, {
   cursor: url('cursor.png') 1 0, default;
 }
 button:hover, button:focus, button:active,
