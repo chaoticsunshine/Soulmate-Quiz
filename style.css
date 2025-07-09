@@ -139,7 +139,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
 }
 
 /* 📱 Responsive */
-@media (max-width:500px) {
+@media (max-width:600px) {
   .quiz-container { padding:1.2rem; }
   .quiz-content h2 { font-size:1.3rem; }
   .quiz-content button { padding:1rem; font-size:.95rem; }
