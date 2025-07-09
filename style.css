@@ -84,7 +84,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
 /* 🔮 Quiz Container */
 .quiz-container {
   display: none; /* shown via JS on start */
-  max-width:500px; width:90%;
+  max-width:600px; width:90%;
   background:#2a2339; padding:2rem;
   border-radius:12px;
   box-shadow:0 0 30px rgba(210,162,255,.15);
