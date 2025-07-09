@@ -15,10 +15,10 @@ body {
   position: relative;
 }
 body, button, a {
-  cursor: url('cursor.png') 1 0, auto;
+  cursor: url('pointer.png') 1 0, auto;
 }
 button:hover {
-  cursor: url('pointer.png') 16 0, auto !important;
+  cursor: url('cursor.png') 16 0, auto !important;
 }
 
 /* 🌌 Star layers */
