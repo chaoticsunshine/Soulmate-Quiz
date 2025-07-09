@@ -175,8 +175,8 @@ const keywords = {
       container.appendChild(btn);
     });
 
-    quizEl.appendChild(content);
-    requestAnimationFrame( () => contnt.classList.add("fade-in"));
+    quizEl.appendChild(container);
+    requestAnimationFrame(() => container.classList.add("fade-in"));
   }
 
   function getTopType() {

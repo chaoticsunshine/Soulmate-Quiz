@@ -18,7 +18,7 @@ body, button, a {
   cursor: url('cursor.png') 1 0, auto;
 }
 button:hover {
-  cursor: url('pointer.png') 0 0, pointer;
+  cursor: url('pointer.png') 0 0, auto;
 }
 
 /* 🌌 Star layers */
@@ -81,16 +81,17 @@ body::after { opacity:0.035; animation-direction: reverse; }
 /* 🔮 Quiz Container */
 #quiz.quiz-container {
   display: none;
-  max-width:600px; width:90%;
-  background:#2a2339; padding:2rem;
+  max-width:600px;
+  width:90%;
+  background:#2a2339;
+  padding:2rem;
   border-radius:12px;
   box-shadow:0 0 30px rgba(210,162,255,.15);
-  position:relative; z-index:1;
+  position:relative;
+  z-index:1;
   min-height: 400px;
-  
-  display: flex;
   flex-direction: column;
-  justify-content: center; /* this vertically centres */  
+  justify-content: center;
 }
 
 /* 🔥 Glow for Results */
