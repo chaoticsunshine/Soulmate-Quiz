@@ -7,7 +7,7 @@
 * { box-sizing: border-box; margin:0; padding:0; }
 body {
   background: #000;
-  font-family: 'Cormorant Upright', serif;
+  font-family: 'Cormorant Garamond', serif;
   color: #f3d9ff;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -104,11 +104,11 @@ body::after { opacity:0.035; animation-direction: reverse; }
 /* 🎴 Question & Result Content */
 .quiz-content h2 {font-size:1.6rem; margin-bottom:1rem; letter-spacing: 0.3px; font-weight: 400}
 .quiz-content p { 
-  font-family:'Inter',sans-serif; line-height:1.6; margin-bottom:1rem; letter-spacing: 0.3px; font-weight: 200;
+  font-family:'Inter',sans-serif; font-size:1rem; line-height:1.6; letter-spacing: 0.3px; font-weight: 200; margin-bottom:1rem;
   text-align:center;
 }
 .quiz-content p.keywords {
-  font-family:'Cormorant Upright',serif; font-style:italic;
+  font-family:'Cormorant Garamond',serif; font-style:italic;
   font-size:1rem; opacity:.8; margin-bottom:1.5rem;
 }
 
@@ -118,7 +118,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
   background: linear-gradient(145deg,#3f2d56,#4e3566);
   border:none; border-radius:12px;
   padding:1.2rem; margin:1rem 0;
-  color:#f5ecff; font-family:'Inter',sans-serif; font-size:1rem;
+  color:#f5ecff; font-family:'Inter',sans-serif; font-size:1rem; font-weight: 200; letter-spacing: 0.3px;
   cursor:pointer; box-shadow:0 5px 15px rgba(123,97,154,.2);
   transition:.2s all;
 }
