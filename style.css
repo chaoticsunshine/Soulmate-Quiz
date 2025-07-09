@@ -13,8 +13,15 @@ body {
   align-items: center; justify-content: center;
   min-height: 100vh; overflow: auto;
   position: relative;
-  cursor: url('cursor.png') 16 16, auto;
 }
+
+body, button, a {
+  cursor: url('cursor.png') 1 0, auto;
+}
+button:hover, a:hover {
+  cursor: url('pointer.png') 0 0, pointer;
+}
+
 
 /* 🌌 Star layers */
 .stars, .twinkling {
@@ -56,7 +63,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
 }
 .quiz-title {font-size:2.4rem; color:#f2e9f0; margin-bottom:1rem; font-weight: 400; letter-spacing: 0.3px}
 .quiz-description {
-  font-family:'Inter',sans-serif; font-size:1.1rem; line-height:1.6; letter-spacing: 0.3px; font-weight: 200;
+  font-family:'Inter',sans-serif; font-size:1rem; line-height:1.3; letter-spacing: 0.3px; font-weight: 200;
   margin-bottom:2rem;
 }
 
@@ -102,14 +109,14 @@ body::after { opacity:0.035; animation-direction: reverse; }
 @keyframes fadeInUp { from { transform:translateY(30px); opacity:0; } to { transform:none; opacity:1; } }
 
 /* 🎴 Question & Result Content */
-.quiz-content h2 {font-size:1.6rem; margin-bottom:1rem; letter-spacing: 0.3px; font-weight: 400; text-align:center}
+.quiz-content h2 {font-size:1.2rem; margin-bottom:1rem; letter-spacing: 0.3px; font-weight: 400; text-align:center}
 .quiz-content p { 
-  font-family:'Inter',sans-serif; font-size:1rem; line-height:1.6; letter-spacing: 0.3px; font-weight: 200; margin-bottom:1rem;
+  font-family:'Inter',sans-serif; font-size:0.8rem; line-height:1.4; letter-spacing: 0.3px; font-weight: 200; margin-bottom:1rem;
   text-align:center;
 }
 .quiz-content p.keywords {
   font-family:'Cormorant Garamond',serif; font-style:italic;
-  font-size:1.2rem; opacity:.8; margin-bottom:1.5rem;
+  font-size:0.9rem; opacity:.8; margin-bottom:1.5rem;
 }
 
 /* 🔘 Answer Buttons */
@@ -118,7 +125,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
   background: linear-gradient(145deg,#3f2d56,#4e3566);
   border:none; border-radius:12px;
   padding:1.2rem; margin:1rem 0;
-  color:#f5ecff; font-family:'Inter',sans-serif; font-size:1rem; font-weight: 200; letter-spacing: 0.3px;
+  color:#f5ecff; font-family:'Inter',sans-serif; font-size:0.8rem; font-weight: 200; letter-spacing: 0.3px;
   cursor:pointer; box-shadow:0 5px 15px rgba(123,97,154,.2);
   transition:.2s all;
 }
