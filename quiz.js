@@ -198,9 +198,9 @@ const keywords = {
       content.classList.add("quiz-content");
 
       // title
-      const titleH2 = document.createElement("h2");
-      titleH2.textContent = `Your Soulmate Archetype: ${archetype}`;
-      content.appendChild(titleH2);
+      const titleH3 = document.createElement("h3");
+      titleH3.textContent = `Your Soulmate Archetype: ${archetype}`;
+      content.appendChild(titleH3);
 
       // keywords
       const kw = document.createElement("p");
