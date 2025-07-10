@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 /* 🌘 Reset & Base */
 * { box-sizing: border-box; margin:0; padding:0; }
@@ -64,7 +65,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
 }
 .quiz-title {font-size:1.5rem; color:#f2e9f0; margin-bottom:1rem; font-weight: 400; letter-spacing: 0.3px}
 .quiz-description {
-  font-family:'Inter',sans-serif; font-size:0.9rem; line-height:1.3; letter-spacing: 0.3px; font-weight: 200;
+  font-family:'Lora',sans-serif; font-size:0.9rem; line-height:1.3; letter-spacing: 0.3px; font-weight: 200;
   margin-bottom:2rem;
 }
 .quiz-description p {
@@ -125,7 +126,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
 /* 🎴 Question & Result Content */
 .quiz-content h2 {font-size:1.3rem; margin-bottom:1rem; letter-spacing: 0.3px; font-weight: 400; text-align:center}
 .quiz-content p { 
-  font-family:'Inter',sans-serif; font-size:0.9rem; line-height:1.4; letter-spacing: 0.3px; font-weight: 200; margin-bottom:1rem;
+  font-family:'Lora',sans-serif; font-size:0.9rem; line-height:1.4; letter-spacing: 0.3px; font-weight: 200; margin-bottom:1rem;
   text-align:center;
 }
 .quiz-content p.keywords {
@@ -140,7 +141,7 @@ body::after { opacity:0.035; animation-direction: reverse; }
   border:none; border-radius:12px;
   padding:1.2rem; margin:1rem 0;
   color:#e1dcff; 
-  font-family:'Inter',sans-serif; font-size:0.9rem; font-weight: 200; letter-spacing: 0.3px;
+  font-family:'Lora',sans-serif; font-size:0.9rem; font-weight: 200; letter-spacing: 0.3px;
   cursor:pointer; box-shadow:0 5px 15px rgba(123,97,154,.2);
   transition:.2s all;
 }
